@@ -1,0 +1,160 @@
+﻿using Dais.EntityModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Dais.Models
+{
+    class ForComponentLoad
+    {
+        public List<ModelMenteqe> menteqeload(byte dairekodu)
+        {
+            List<ModelMenteqe> menteqes;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                menteqes = (from men in db.Menteqes
+                            where men.DaireKodu == dairekodu
+                            select new ModelMenteqe()
+                            {
+                                MenteqeID = men.MenteqeID,
+                                MenteqeKodu = men.MenteqeKodu.ToString()
+                            }).ToList<ModelMenteqe>();
+            }
+            return menteqes;
+        }
+        public List<QeydiyyatSebeb> sebebload()
+        {
+            List<QeydiyyatSebeb> sebeb;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                sebeb = (from qeysebeb in db.QeydiyyatSebebs
+                         orderby qeysebeb.QeydiyyatSebebID
+                         select qeysebeb).ToList();
+            }
+            return sebeb;
+        }
+        public List<SeciciStatu> statusload()
+        {
+            List<SeciciStatu> status;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                status = (from stat in db.SeciciStatus
+                         orderby stat.SeciciStatusID
+                          select stat).ToList();
+            }
+            return status;
+        }
+        public List<VesiqeSeriya> seriyaload()
+        {
+            List<VesiqeSeriya> seriya;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                seriya = (from ser in db.VesiqeSeriyas
+                         orderby ser.VesiqeSeriyaID
+                         select ser).ToList();
+            }
+            return seriya;
+        }
+        public List<ModelMertebe> binamertebeload()
+        {
+            List<ModelMertebe> mertebes = new List<ModelMertebe>();
+            for (byte i = 1; i <= 50; i++)
+            {
+                mertebes.Add(new ModelMertebe() { ID = i, Mertebenomresi = i });
+            }
+            return mertebes;
+        }
+        public List<ModelDogumili> dogumiliload()
+        {
+            List<ModelDogumili> dogumili;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                int NowYear = (from data in db.QeydiyyatSebebs select DateTime.Now.Year).FirstOrDefault();
+                dogumili = new List<ModelDogumili>();
+                for (int i = NowYear; i >= 1900; i--)
+                {
+                    dogumili.Add(new ModelDogumili() { ID = i, Dogumili = i });
+                }
+            }
+            return dogumili;
+        }
+        public List<ModelDogumayi> dogumayiload()
+        {
+            List<ModelDogumayi> dogumayi;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                dogumayi = new List<ModelDogumayi>();
+                for (byte i = 0; i <= 12; i++)
+                {
+                    dogumayi.Add(new ModelDogumayi() { ID = i, Dogumayi = i });
+                }
+            }
+            return dogumayi;
+        }
+        public List<ModelDogumgunu> dogumgunuload()
+        {
+            List<ModelDogumgunu> dogumgunu;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+
+                dogumgunu = new List<ModelDogumgunu>();
+                for (byte i = 0; i <= 31; i++)
+                {
+                    dogumgunu.Add(new ModelDogumgunu() { ID = i, Dogumgunu = i });
+                }
+            }
+            return dogumgunu;
+        }
+        public string unvanload(short menteqeid)
+        {
+            string unvan;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                unvan = (from yasmen in db.YashayishMenteqesis
+                         join pr in db.ProspektKuches on yasmen.YashayishMenteqesiID
+                         equals pr.YashayishMenteqesiID
+                         join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
+                         equals prkdm.ProspektKucheID
+                         join men in db.Menteqes on prkdm.MenteqeID equals men.MenteqeID
+                         join ray in db.Rayons on men.RayonKodu equals ray.RayonKodu
+                         where prkdm.MenteqeID == menteqeid
+                         select ray.RayonAdi + ", " + yasmen.YashayishMenteqesiAdi).FirstOrDefault();
+            }
+            return unvan;
+        }
+        public List<ModelProspektKuce> prospektkucheload(short menteqeid)
+        {
+            List<ModelProspektKuce> prospektuches;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                prospektuches = (from pr in db.ProspektKuches
+                                 join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
+                                 equals prkdm.ProspektKucheID
+                                 where prkdm.MenteqeID == menteqeid
+                                 select new ModelProspektKuce()
+                                 {
+                                     ProspKucheDaireMentID = prkdm.ProspKucheDaireMentID,
+                                     ProspektKucheAdi = pr.ProspektKucheAdi
+                                 }
+                     ).ToList<ModelProspektKuce>();
+            }
+            return prospektuches;
+        }
+        public List<Ev> evload(int ProspKucheDaireMentID)
+        {
+            List<Ev> evler;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                evler = (from ev in db.Evs
+                         where ev.ProspKucheDaireMentID == ProspKucheDaireMentID
+                         orderby ev.EvAdi
+                         select ev
+                     ).ToList<Ev>();
+            }
+            return evler;
+        }
+    }
+}
