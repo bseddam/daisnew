@@ -15,8 +15,9 @@ namespace Dais
 {
     public partial class DaimiUC : UserControl
     {
-        EntityDataModels db = new EntityDataModels();
+
         ForComponentLoad fcl = new ForComponentLoad();
+        
         public DaimiUC()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Dais
         {
             MenuFRM menu = this.Parent as MenuFRM;
             cmbmenteqeload(menu.daire.DaireKodu);
+            
             cmbbinamertebeload();
             cmbsebeblaod();
             cmbdogumiliload();
@@ -95,6 +97,7 @@ namespace Dais
         private void cmbmenteqe_SelectedIndexChanged(object sender, EventArgs e)
         {
             short number = 0;
+            
             if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
             {
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
@@ -213,13 +216,9 @@ namespace Dais
                     
                     grvdaimi.DataSource = fcl.daimiload(daimi.MenteqeID);;
                     MessageBox.Show("Seçici əlavə olundu");
-                   
-                   
 
                 }
 
-               
-              
                 
             }
         }

@@ -31,11 +31,12 @@ namespace Dais.Models
             using (EntityDataModels db = new EntityDataModels())
             {
                 daimis = (from d in db.Daimis
+                          join men in db.Menteqes on d.MenteqeID equals men.MenteqeID
                           where d.MenteqeID == MenteqeID
                           orderby d.SeciciID descending
                           select new ModelDaimi
                           {
-                              MenteqeID=d.MenteqeID,
+                              MenteqeID= men.MenteqeKodu,
                               Soyad= d.Soyad,
                               Ad= d.Ad,
                               AtaAdi= d.AtaAdi,
