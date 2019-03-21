@@ -1,4 +1,4 @@
-namespace Dais.EntityModel
+﻿namespace Dais.EntityModel
 {
     using System;
     using System.Collections.Generic;
@@ -20,15 +20,17 @@ namespace Dais.EntityModel
 
         public int? ProspKucheDaireMentID { get; set; }
 
-        [Required]
+       
+        [Required(ErrorMessage = "Soyad boş ola bilməz.")]
         [StringLength(50)]
         public string Soyad { get; set; }
 
-        [Required]
+      
+        [Required(ErrorMessage = "Ad boş ola bilməz.")]
         [StringLength(50)]
         public string Ad { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ata adı boş ola bilməz.")]
         [StringLength(50)]
         public string AtaAdi { get; set; }
 

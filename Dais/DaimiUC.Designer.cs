@@ -63,6 +63,8 @@
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
+            this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -79,8 +81,6 @@
             this.lblseherqesebekend = new System.Windows.Forms.Label();
             this.txtmenzil = new System.Windows.Forms.TextBox();
             this.grvdaimi = new System.Windows.Forms.DataGridView();
-            this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
-            this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -378,6 +378,7 @@
             // 
             // txtataadi
             // 
+            this.txtataadi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtataadi.Location = new System.Drawing.Point(123, 250);
             this.txtataadi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtataadi.Name = "txtataadi";
@@ -396,6 +397,7 @@
             // 
             // txtad
             // 
+            this.txtad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtad.Location = new System.Drawing.Point(123, 218);
             this.txtad.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtad.Name = "txtad";
@@ -414,6 +416,7 @@
             // 
             // txtsoyad
             // 
+            this.txtsoyad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtsoyad.Location = new System.Drawing.Point(124, 181);
             this.txtsoyad.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtsoyad.Name = "txtsoyad";
@@ -474,6 +477,25 @@
             this.panel1.Size = new System.Drawing.Size(566, 619);
             this.panel1.TabIndex = 5;
             // 
+            // dtpvesetibartar
+            // 
+            this.dtpvesetibartar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpvesetibartar.Location = new System.Drawing.Point(163, 490);
+            this.dtpvesetibartar.Name = "dtpvesetibartar";
+            this.dtpvesetibartar.Size = new System.Drawing.Size(145, 20);
+            this.dtpvesetibartar.TabIndex = 101;
+            // 
+            // dtpvesverilmetar
+            // 
+            this.dtpvesverilmetar.CustomFormat = "dd.MM.yyyy";
+            this.dtpvesverilmetar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpvesverilmetar.Location = new System.Drawing.Point(18, 490);
+            this.dtpvesverilmetar.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
+            this.dtpvesverilmetar.MinDate = new System.DateTime(1850, 1, 1, 0, 0, 0, 0);
+            this.dtpvesverilmetar.Name = "dtpvesverilmetar";
+            this.dtpvesverilmetar.Size = new System.Drawing.Size(104, 20);
+            this.dtpvesverilmetar.TabIndex = 100;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.radioButton1);
@@ -492,7 +514,7 @@
             this.radioButton1.Size = new System.Drawing.Size(56, 17);
             this.radioButton1.TabIndex = 94;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Köhne";
+            this.radioButton1.Text = "Köhnə";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -534,13 +556,13 @@
             this.rbqadin.Name = "rbqadin";
             this.rbqadin.Size = new System.Drawing.Size(53, 17);
             this.rbqadin.TabIndex = 66;
-            this.rbqadin.TabStop = true;
             this.rbqadin.Text = "Qadın";
             this.rbqadin.UseVisualStyleBackColor = true;
             // 
             // rbkisi
             // 
             this.rbkisi.AutoSize = true;
+            this.rbkisi.Checked = true;
             this.rbkisi.Location = new System.Drawing.Point(104, 7);
             this.rbkisi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.rbkisi.Name = "rbkisi";
@@ -634,25 +656,6 @@
             this.grvdaimi.Name = "grvdaimi";
             this.grvdaimi.Size = new System.Drawing.Size(514, 619);
             this.grvdaimi.TabIndex = 6;
-            // 
-            // dtpvesverilmetar
-            // 
-            this.dtpvesverilmetar.CustomFormat = "dd.MM.yyyy";
-            this.dtpvesverilmetar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpvesverilmetar.Location = new System.Drawing.Point(18, 490);
-            this.dtpvesverilmetar.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
-            this.dtpvesverilmetar.MinDate = new System.DateTime(1850, 1, 1, 0, 0, 0, 0);
-            this.dtpvesverilmetar.Name = "dtpvesverilmetar";
-            this.dtpvesverilmetar.Size = new System.Drawing.Size(104, 20);
-            this.dtpvesverilmetar.TabIndex = 100;
-            // 
-            // dtpvesetibartar
-            // 
-            this.dtpvesetibartar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpvesetibartar.Location = new System.Drawing.Point(163, 490);
-            this.dtpvesetibartar.Name = "dtpvesetibartar";
-            this.dtpvesetibartar.Size = new System.Drawing.Size(145, 20);
-            this.dtpvesetibartar.TabIndex = 101;
             // 
             // DaimiUC
             // 

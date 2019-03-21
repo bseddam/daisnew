@@ -25,6 +25,28 @@ namespace Dais.Models
             }
             return menteqes;
         }
+        public List<ModelDaimi> daimiload(short MenteqeID)
+        {
+            List<ModelDaimi> daimis;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                daimis = (from d in db.Daimis
+                          where d.MenteqeID == MenteqeID
+                          orderby d.SeciciID descending
+                          select new ModelDaimi
+                          {
+                              MenteqeID=d.MenteqeID,
+                              Soyad= d.Soyad,
+                              Ad= d.Ad,
+                              AtaAdi= d.AtaAdi,
+                              Dogumili= d.DogumIli,
+                              Pinkod= d.Pinkod,
+                              VesiqeNomresi= d.VesiqeNomresi,
+                              Cins =(d.Cins==false?"Qadın": "Kişi")
+                          }).ToList<ModelDaimi>();
+            }
+            return daimis;
+        }
         public List<QeydiyyatSebeb> sebebload()
         {
             List<QeydiyyatSebeb> sebeb;

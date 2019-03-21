@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dais.EntityModel;
 using Dais.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dais
 {
@@ -97,11 +98,10 @@ namespace Dais
             if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
             {
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
+                
                 lblseherqesebekend.Text = fcl.unvanload(MenteqeID);
                 cmbprospkuceload(MenteqeID);
-                grvdaimi.DataSource = (from d in db.Daimis
-                                       where d.MenteqeID == MenteqeID
-                                       select d).ToList();
+                grvdaimi.DataSource = fcl.daimiload(MenteqeID);
             }  
         }
 
@@ -119,11 +119,10 @@ namespace Dais
 
         private void btntesdiqdaimi_Click(object sender, EventArgs e)
         {
-            
+
             using (EntityDataModels db = new EntityDataModels())
             {
                 Daimi daimi = new Daimi();
-
                 short number = 0;
                 byte number1 = 0;
                 int number2 = 0;
@@ -131,12 +130,12 @@ namespace Dais
                 {
                     daimi.MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
                 }
-                if(cmbev.SelectedValue!=null)
-                { 
-                if (int.TryParse(cmbev.SelectedValue.ToString(), out number2))
+                if (cmbev.SelectedValue != null)
                 {
-                    daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
-                }
+                    if (int.TryParse(cmbev.SelectedValue.ToString(), out number2))
+                    {
+                        daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
+                    }
                 }
                 if (short.TryParse(cmbprospkuce.SelectedValue.ToString(), out number))
                 {
@@ -157,13 +156,13 @@ namespace Dais
                 {
                     daimi.DogumIli = short.Parse(cmbdogumili.SelectedValue.ToString());
                 }
-                if (rbkisi.Checked)
+                if (rbqadin.Checked)
                 {
-                    daimi.Cins = true;
+                    daimi.Cins = false;
                 }
                 else
                 {
-                    daimi.Cins = false;
+                    daimi.Cins = true;
                 }
                 if (byte.TryParse(cmbbinamertebe.SelectedValue.ToString(), out number1))
                 {
@@ -188,16 +187,40 @@ namespace Dais
                 //{
                 //    daimi.VesiqeVerenQurum = byte.Parse(cmbqurumadi.SelectedValue.ToString());
                 //}
-                
+
                 daimi.VesiqeVerilmeTarixi = DateTime.Parse(dtpvesverilmetar.Text);
                 daimi.VesiqeEtibarliqTarixi = DateTime.Parse(dtpvesverilmetar.Text);
-                
+
                 daimi.DaxiledilmeTarixi = DateTime.Now;
                 daimi.Pinkod = txtfinkod.Text;
                 daimi.QeyCixmaVereqi = false;
 
-                db.Daimis.Add(daimi);
-                db.SaveChanges();
+                ValidationContext context = new ValidationContext(daimi, null, null);
+                IList<ValidationResult> errors = new List<ValidationResult>();
+
+                if (!Validator.TryValidateObject(daimi, context, errors, true))
+                {
+                    string errorlar = "";
+                    foreach (ValidationResult result in errors)
+                        errorlar = errorlar + " " + result.ErrorMessage;
+                    MessageBox.Show(errorlar);
+                }
+                else
+                {
+
+                    db.Daimis.Add(daimi);
+                    db.SaveChanges();
+                    
+                    grvdaimi.DataSource = fcl.daimiload(daimi.MenteqeID);;
+                    MessageBox.Show("Seçici əlavə olundu");
+                   
+                   
+
+                }
+
+               
+              
+                
             }
         }
     }
