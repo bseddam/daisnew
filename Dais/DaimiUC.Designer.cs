@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.cmbsebeb = new System.Windows.Forms.ComboBox();
             this.lblsebeb = new System.Windows.Forms.Label();
             this.lblmenzil = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.btntesdiqdaimi = new System.Windows.Forms.Button();
             this.lbletibarliliq = new System.Windows.Forms.Label();
             this.lblverilmetarixi = new System.Windows.Forms.Label();
-            this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
             this.cmbseriya = new System.Windows.Forms.ComboBox();
             this.lblseriya = new System.Windows.Forms.Label();
             this.lblvesiqenomresi = new System.Windows.Forms.Label();
@@ -49,15 +47,12 @@
             this.lblev = new System.Windows.Forms.Label();
             this.cmbprospkuce = new System.Windows.Forms.ComboBox();
             this.lblprospektkuce = new System.Windows.Forms.Label();
-            this.rbqadin = new System.Windows.Forms.RadioButton();
-            this.rbkisi = new System.Windows.Forms.RadioButton();
             this.cmbdogumili = new System.Windows.Forms.ComboBox();
             this.lbldogumili = new System.Windows.Forms.Label();
             this.cmbdogumay = new System.Windows.Forms.ComboBox();
             this.lbldogumayi = new System.Windows.Forms.Label();
             this.cmbdogumgunu = new System.Windows.Forms.ComboBox();
             this.lbldogumgunu = new System.Windows.Forms.Label();
-            this.lblcins = new System.Windows.Forms.Label();
             this.lblunvan = new System.Windows.Forms.Label();
             this.cmbmenteqe = new System.Windows.Forms.ComboBox();
             this.lblmenteqe = new System.Windows.Forms.Label();
@@ -68,30 +63,29 @@
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbqadin = new System.Windows.Forms.RadioButton();
+            this.rbkisi = new System.Windows.Forms.RadioButton();
+            this.lblcins = new System.Windows.Forms.Label();
+            this.cmbqurumadi = new System.Windows.Forms.ComboBox();
+            this.qurumadi = new System.Windows.Forms.Label();
             this.cmbstatus = new System.Windows.Forms.ComboBox();
             this.lblstatus = new System.Windows.Forms.Label();
-            this.rbkohne = new System.Windows.Forms.RadioButton();
-            this.rbyeni = new System.Windows.Forms.RadioButton();
-            this.pasportnov = new System.Windows.Forms.Label();
-            this.txtfindkod = new System.Windows.Forms.TextBox();
+            this.txtfinkod = new System.Windows.Forms.TextBox();
             this.lblseherqesebekend = new System.Windows.Forms.Label();
             this.txtmenzil = new System.Windows.Forms.TextBox();
             this.grvdaimi = new System.Windows.Forms.DataGridView();
+            this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
+            this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dtpvesetibartar
-            // 
-            this.dtpvesetibartar.CustomFormat = "dd.MM.yyyy";
-            this.dtpvesetibartar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpvesetibartar.Location = new System.Drawing.Point(196, 490);
-            this.dtpvesetibartar.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpvesetibartar.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
-            this.dtpvesetibartar.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpvesetibartar.Name = "dtpvesetibartar";
-            this.dtpvesetibartar.Size = new System.Drawing.Size(158, 20);
-            this.dtpvesetibartar.TabIndex = 85;
             // 
             // cmbsebeb
             // 
@@ -100,7 +94,7 @@
             this.cmbsebeb.Location = new System.Drawing.Point(123, 146);
             this.cmbsebeb.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cmbsebeb.Name = "cmbsebeb";
-            this.cmbsebeb.Size = new System.Drawing.Size(395, 21);
+            this.cmbsebeb.Size = new System.Drawing.Size(118, 21);
             this.cmbsebeb.TabIndex = 76;
             // 
             // lblsebeb
@@ -180,11 +174,12 @@
             this.btntesdiqdaimi.TabIndex = 87;
             this.btntesdiqdaimi.Text = "Təsdiq et";
             this.btntesdiqdaimi.UseVisualStyleBackColor = true;
+            this.btntesdiqdaimi.Click += new System.EventHandler(this.btntesdiqdaimi_Click);
             // 
             // lbletibarliliq
             // 
             this.lbletibarliliq.AutoSize = true;
-            this.lbletibarliliq.Location = new System.Drawing.Point(194, 458);
+            this.lbletibarliliq.Location = new System.Drawing.Point(166, 458);
             this.lbletibarliliq.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbletibarliliq.Name = "lbletibarliliq";
             this.lbletibarliliq.Size = new System.Drawing.Size(75, 13);
@@ -201,18 +196,6 @@
             this.lblverilmetarixi.TabIndex = 84;
             this.lblverilmetarixi.Text = "Verilmə tarixi:";
             // 
-            // dtpvesverilmetar
-            // 
-            this.dtpvesverilmetar.CustomFormat = "dd.MM.yyyy";
-            this.dtpvesverilmetar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpvesverilmetar.Location = new System.Drawing.Point(18, 490);
-            this.dtpvesverilmetar.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpvesverilmetar.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
-            this.dtpvesverilmetar.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpvesverilmetar.Name = "dtpvesverilmetar";
-            this.dtpvesverilmetar.Size = new System.Drawing.Size(158, 20);
-            this.dtpvesverilmetar.TabIndex = 83;
-            // 
             // cmbseriya
             // 
             this.cmbseriya.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -220,7 +203,7 @@
             this.cmbseriya.Location = new System.Drawing.Point(21, 413);
             this.cmbseriya.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cmbseriya.Name = "cmbseriya";
-            this.cmbseriya.Size = new System.Drawing.Size(158, 21);
+            this.cmbseriya.Size = new System.Drawing.Size(73, 21);
             this.cmbseriya.TabIndex = 82;
             // 
             // lblseriya
@@ -236,7 +219,7 @@
             // lblvesiqenomresi
             // 
             this.lblvesiqenomresi.AutoSize = true;
-            this.lblvesiqenomresi.Location = new System.Drawing.Point(194, 387);
+            this.lblvesiqenomresi.Location = new System.Drawing.Point(124, 387);
             this.lblvesiqenomresi.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblvesiqenomresi.Name = "lblvesiqenomresi";
             this.lblvesiqenomresi.Size = new System.Drawing.Size(48, 13);
@@ -245,16 +228,16 @@
             // 
             // txtvesiqenomresi
             // 
-            this.txtvesiqenomresi.Location = new System.Drawing.Point(194, 413);
+            this.txtvesiqenomresi.Location = new System.Drawing.Point(127, 413);
             this.txtvesiqenomresi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txtvesiqenomresi.Name = "txtvesiqenomresi";
-            this.txtvesiqenomresi.Size = new System.Drawing.Size(156, 20);
+            this.txtvesiqenomresi.Size = new System.Drawing.Size(83, 20);
             this.txtvesiqenomresi.TabIndex = 79;
             // 
             // lblpinkod
             // 
             this.lblpinkod.AutoSize = true;
-            this.lblpinkod.Location = new System.Drawing.Point(357, 387);
+            this.lblpinkod.Location = new System.Drawing.Point(222, 387);
             this.lblpinkod.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblpinkod.Name = "lblpinkod";
             this.lblpinkod.Size = new System.Drawing.Size(51, 13);
@@ -292,30 +275,6 @@
             this.lblprospektkuce.TabIndex = 65;
             this.lblprospektkuce.Text = "Prospekt, Küçə:";
             // 
-            // rbqadin
-            // 
-            this.rbqadin.AutoSize = true;
-            this.rbqadin.Location = new System.Drawing.Point(212, 340);
-            this.rbqadin.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.rbqadin.Name = "rbqadin";
-            this.rbqadin.Size = new System.Drawing.Size(53, 17);
-            this.rbqadin.TabIndex = 63;
-            this.rbqadin.TabStop = true;
-            this.rbqadin.Text = "Qadın";
-            this.rbqadin.UseVisualStyleBackColor = true;
-            // 
-            // rbkisi
-            // 
-            this.rbkisi.AutoSize = true;
-            this.rbkisi.Location = new System.Drawing.Point(122, 340);
-            this.rbkisi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.rbkisi.Name = "rbkisi";
-            this.rbkisi.Size = new System.Drawing.Size(41, 17);
-            this.rbkisi.TabIndex = 62;
-            this.rbkisi.TabStop = true;
-            this.rbkisi.Text = "Kişi";
-            this.rbkisi.UseVisualStyleBackColor = true;
-            // 
             // cmbdogumili
             // 
             this.cmbdogumili.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -323,7 +282,7 @@
             this.cmbdogumili.Location = new System.Drawing.Point(18, 312);
             this.cmbdogumili.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cmbdogumili.Name = "cmbdogumili";
-            this.cmbdogumili.Size = new System.Drawing.Size(110, 21);
+            this.cmbdogumili.Size = new System.Drawing.Size(76, 21);
             this.cmbdogumili.TabIndex = 61;
             // 
             // lbldogumili
@@ -375,16 +334,6 @@
             this.lbldogumgunu.Size = new System.Drawing.Size(36, 13);
             this.lbldogumgunu.TabIndex = 56;
             this.lbldogumgunu.Text = "Günü:";
-            // 
-            // lblcins
-            // 
-            this.lblcins.AutoSize = true;
-            this.lblcins.Location = new System.Drawing.Point(14, 340);
-            this.lblcins.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblcins.Name = "lblcins";
-            this.lblcins.Size = new System.Drawing.Size(32, 13);
-            this.lblcins.TabIndex = 55;
-            this.lblcins.Text = "Cinsi:";
             // 
             // lblunvan
             // 
@@ -473,15 +422,17 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dtpvesetibartar);
+            this.panel1.Controls.Add(this.dtpvesverilmetar);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.cmbqurumadi);
+            this.panel1.Controls.Add(this.qurumadi);
             this.panel1.Controls.Add(this.cmbstatus);
             this.panel1.Controls.Add(this.lblstatus);
-            this.panel1.Controls.Add(this.rbkohne);
-            this.panel1.Controls.Add(this.rbyeni);
-            this.panel1.Controls.Add(this.pasportnov);
-            this.panel1.Controls.Add(this.txtfindkod);
+            this.panel1.Controls.Add(this.txtfinkod);
             this.panel1.Controls.Add(this.lblseherqesebekend);
             this.panel1.Controls.Add(this.txtmenzil);
-            this.panel1.Controls.Add(this.dtpvesetibartar);
             this.panel1.Controls.Add(this.cmbsebeb);
             this.panel1.Controls.Add(this.lblsebeb);
             this.panel1.Controls.Add(this.lblmenzil);
@@ -493,7 +444,6 @@
             this.panel1.Controls.Add(this.btntesdiqdaimi);
             this.panel1.Controls.Add(this.lbletibarliliq);
             this.panel1.Controls.Add(this.lblverilmetarixi);
-            this.panel1.Controls.Add(this.dtpvesverilmetar);
             this.panel1.Controls.Add(this.cmbseriya);
             this.panel1.Controls.Add(this.lblseriya);
             this.panel1.Controls.Add(this.lblvesiqenomresi);
@@ -502,15 +452,12 @@
             this.panel1.Controls.Add(this.lblev);
             this.panel1.Controls.Add(this.cmbprospkuce);
             this.panel1.Controls.Add(this.lblprospektkuce);
-            this.panel1.Controls.Add(this.rbqadin);
-            this.panel1.Controls.Add(this.rbkisi);
             this.panel1.Controls.Add(this.cmbdogumili);
             this.panel1.Controls.Add(this.lbldogumili);
             this.panel1.Controls.Add(this.cmbdogumay);
             this.panel1.Controls.Add(this.lbldogumayi);
             this.panel1.Controls.Add(this.cmbdogumgunu);
             this.panel1.Controls.Add(this.lbldogumgunu);
-            this.panel1.Controls.Add(this.lblcins);
             this.panel1.Controls.Add(this.lblunvan);
             this.panel1.Controls.Add(this.cmbmenteqe);
             this.panel1.Controls.Add(this.lblmenteqe);
@@ -526,6 +473,112 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 619);
             this.panel1.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radioButton1);
+            this.panel3.Controls.Add(this.radioButton2);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(293, 345);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(252, 31);
+            this.panel3.TabIndex = 99;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(169, 6);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(56, 17);
+            this.radioButton1.TabIndex = 94;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Köhne";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(102, 6);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(46, 17);
+            this.radioButton2.TabIndex = 93;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Yeni";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 92;
+            this.label1.Text = "Passport növü:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbqadin);
+            this.panel2.Controls.Add(this.rbkisi);
+            this.panel2.Controls.Add(this.lblcins);
+            this.panel2.Location = new System.Drawing.Point(21, 344);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(252, 32);
+            this.panel2.TabIndex = 98;
+            // 
+            // rbqadin
+            // 
+            this.rbqadin.AutoSize = true;
+            this.rbqadin.Location = new System.Drawing.Point(194, 7);
+            this.rbqadin.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.rbqadin.Name = "rbqadin";
+            this.rbqadin.Size = new System.Drawing.Size(53, 17);
+            this.rbqadin.TabIndex = 66;
+            this.rbqadin.TabStop = true;
+            this.rbqadin.Text = "Qadın";
+            this.rbqadin.UseVisualStyleBackColor = true;
+            // 
+            // rbkisi
+            // 
+            this.rbkisi.AutoSize = true;
+            this.rbkisi.Location = new System.Drawing.Point(104, 7);
+            this.rbkisi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.rbkisi.Name = "rbkisi";
+            this.rbkisi.Size = new System.Drawing.Size(41, 17);
+            this.rbkisi.TabIndex = 65;
+            this.rbkisi.TabStop = true;
+            this.rbkisi.Text = "Kişi";
+            this.rbkisi.UseVisualStyleBackColor = true;
+            // 
+            // lblcins
+            // 
+            this.lblcins.AutoSize = true;
+            this.lblcins.Location = new System.Drawing.Point(0, 7);
+            this.lblcins.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblcins.Name = "lblcins";
+            this.lblcins.Size = new System.Drawing.Size(32, 13);
+            this.lblcins.TabIndex = 64;
+            this.lblcins.Text = "Cinsi:";
+            // 
+            // cmbqurumadi
+            // 
+            this.cmbqurumadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbqurumadi.FormattingEnabled = true;
+            this.cmbqurumadi.Location = new System.Drawing.Point(337, 412);
+            this.cmbqurumadi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.cmbqurumadi.Name = "cmbqurumadi";
+            this.cmbqurumadi.Size = new System.Drawing.Size(104, 21);
+            this.cmbqurumadi.TabIndex = 97;
+            // 
+            // qurumadi
+            // 
+            this.qurumadi.AutoSize = true;
+            this.qurumadi.Location = new System.Drawing.Point(334, 387);
+            this.qurumadi.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.qurumadi.Name = "qurumadi";
+            this.qurumadi.Size = new System.Drawing.Size(70, 13);
+            this.qurumadi.TabIndex = 96;
+            this.qurumadi.Text = "Qurumun adı:";
             // 
             // cmbstatus
             // 
@@ -547,45 +600,13 @@
             this.lblstatus.TabIndex = 94;
             this.lblstatus.Text = "Statuslar:";
             // 
-            // rbkohne
+            // txtfinkod
             // 
-            this.rbkohne.AutoSize = true;
-            this.rbkohne.Location = new System.Drawing.Point(212, 363);
-            this.rbkohne.Name = "rbkohne";
-            this.rbkohne.Size = new System.Drawing.Size(56, 17);
-            this.rbkohne.TabIndex = 93;
-            this.rbkohne.TabStop = true;
-            this.rbkohne.Text = "Köhne";
-            this.rbkohne.UseVisualStyleBackColor = true;
-            // 
-            // rbyeni
-            // 
-            this.rbyeni.AutoSize = true;
-            this.rbyeni.Location = new System.Drawing.Point(121, 363);
-            this.rbyeni.Name = "rbyeni";
-            this.rbyeni.Size = new System.Drawing.Size(46, 17);
-            this.rbyeni.TabIndex = 92;
-            this.rbyeni.TabStop = true;
-            this.rbyeni.Text = "Yeni";
-            this.rbyeni.UseVisualStyleBackColor = true;
-            // 
-            // pasportnov
-            // 
-            this.pasportnov.AutoSize = true;
-            this.pasportnov.Location = new System.Drawing.Point(17, 363);
-            this.pasportnov.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.pasportnov.Name = "pasportnov";
-            this.pasportnov.Size = new System.Drawing.Size(78, 13);
-            this.pasportnov.TabIndex = 91;
-            this.pasportnov.Text = "Passport növü:";
-            // 
-            // txtfindkod
-            // 
-            this.txtfindkod.Location = new System.Drawing.Point(360, 414);
-            this.txtfindkod.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtfindkod.Name = "txtfindkod";
-            this.txtfindkod.Size = new System.Drawing.Size(156, 20);
-            this.txtfindkod.TabIndex = 90;
+            this.txtfinkod.Location = new System.Drawing.Point(225, 413);
+            this.txtfinkod.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtfinkod.Name = "txtfinkod";
+            this.txtfinkod.Size = new System.Drawing.Size(83, 20);
+            this.txtfinkod.TabIndex = 90;
             // 
             // lblseherqesebekend
             // 
@@ -614,6 +635,25 @@
             this.grvdaimi.Size = new System.Drawing.Size(514, 619);
             this.grvdaimi.TabIndex = 6;
             // 
+            // dtpvesverilmetar
+            // 
+            this.dtpvesverilmetar.CustomFormat = "dd.MM.yyyy";
+            this.dtpvesverilmetar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpvesverilmetar.Location = new System.Drawing.Point(18, 490);
+            this.dtpvesverilmetar.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
+            this.dtpvesverilmetar.MinDate = new System.DateTime(1850, 1, 1, 0, 0, 0, 0);
+            this.dtpvesverilmetar.Name = "dtpvesverilmetar";
+            this.dtpvesverilmetar.Size = new System.Drawing.Size(104, 20);
+            this.dtpvesverilmetar.TabIndex = 100;
+            // 
+            // dtpvesetibartar
+            // 
+            this.dtpvesetibartar.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpvesetibartar.Location = new System.Drawing.Point(163, 490);
+            this.dtpvesetibartar.Name = "dtpvesetibartar";
+            this.dtpvesetibartar.Size = new System.Drawing.Size(145, 20);
+            this.dtpvesetibartar.TabIndex = 101;
+            // 
             // DaimiUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,14 +665,16 @@
             this.Load += new System.EventHandler(this.DaimiUC_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dtpvesetibartar;
         private System.Windows.Forms.ComboBox cmbsebeb;
         private System.Windows.Forms.Label lblsebeb;
         private System.Windows.Forms.Label lblmenzil;
@@ -644,7 +686,6 @@
         private System.Windows.Forms.Button btntesdiqdaimi;
         private System.Windows.Forms.Label lbletibarliliq;
         private System.Windows.Forms.Label lblverilmetarixi;
-        private System.Windows.Forms.DateTimePicker dtpvesverilmetar;
         private System.Windows.Forms.ComboBox cmbseriya;
         private System.Windows.Forms.Label lblseriya;
         private System.Windows.Forms.Label lblvesiqenomresi;
@@ -653,15 +694,12 @@
         private System.Windows.Forms.Label lblev;
         private System.Windows.Forms.ComboBox cmbprospkuce;
         private System.Windows.Forms.Label lblprospektkuce;
-        private System.Windows.Forms.RadioButton rbqadin;
-        private System.Windows.Forms.RadioButton rbkisi;
         private System.Windows.Forms.ComboBox cmbdogumili;
         private System.Windows.Forms.Label lbldogumili;
         private System.Windows.Forms.ComboBox cmbdogumay;
         private System.Windows.Forms.Label lbldogumayi;
         private System.Windows.Forms.ComboBox cmbdogumgunu;
         private System.Windows.Forms.Label lbldogumgunu;
-        private System.Windows.Forms.Label lblcins;
         private System.Windows.Forms.Label lblunvan;
         private System.Windows.Forms.ComboBox cmbmenteqe;
         private System.Windows.Forms.Label lblmenteqe;
@@ -675,11 +713,20 @@
         private System.Windows.Forms.DataGridView grvdaimi;
         private System.Windows.Forms.TextBox txtmenzil;
         private System.Windows.Forms.Label lblseherqesebekend;
-        private System.Windows.Forms.TextBox txtfindkod;
-        private System.Windows.Forms.Label pasportnov;
-        private System.Windows.Forms.RadioButton rbkohne;
-        private System.Windows.Forms.RadioButton rbyeni;
+        private System.Windows.Forms.TextBox txtfinkod;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.ComboBox cmbstatus;
+        private System.Windows.Forms.Label qurumadi;
+        private System.Windows.Forms.ComboBox cmbqurumadi;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbqadin;
+        private System.Windows.Forms.RadioButton rbkisi;
+        private System.Windows.Forms.Label lblcins;
+        private System.Windows.Forms.DateTimePicker dtpvesverilmetar;
+        private System.Windows.Forms.DateTimePicker dtpvesetibartar;
     }
 }

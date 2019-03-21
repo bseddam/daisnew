@@ -17,7 +17,7 @@ namespace Dais.EntityModel
 
         public byte VesiqeSeriyaID { get; set; }
 
-        [StringLength(3)]
+        [StringLength(50)]
         public string VesiqeSeriyaAdi { get; set; }
 
         public byte? VesiqeTipiID { get; set; }

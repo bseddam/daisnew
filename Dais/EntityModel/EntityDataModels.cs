@@ -123,10 +123,7 @@ namespace Dais.EntityModel
 
             modelBuilder.Entity<VesiqeSeriya>()
                 .Property(e => e.VesiqeSeriyaAdi)
-                .IsFixedLength()
                 .IsUnicode(false);
         }
-
-
     }
 }

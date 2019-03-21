@@ -11,6 +11,7 @@ namespace Dais.EntityModel
     {
         [Key]
         [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal SeciciID { get; set; }
 
         public short MenteqeID { get; set; }
@@ -57,10 +58,8 @@ namespace Dais.EntityModel
 
         public byte? VesiqeVerenQurum { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? VesiqeVerilmeTarixi { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? VesiqeEtibarliqTarixi { get; set; }
 
         [StringLength(7)]

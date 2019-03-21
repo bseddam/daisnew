@@ -8,7 +8,7 @@ namespace Dais.Models
 {
     class ModelMenteqe
     {
-        public short? MenteqeID { get; set; }
+        public short MenteqeID { get; set; }
         public string MenteqeKodu { get; set; }
     }
 }
