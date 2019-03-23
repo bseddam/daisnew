@@ -23,7 +23,44 @@ namespace Dais.Models
                                 MenteqeKodu = men.MenteqeKodu.ToString()
                             }).ToList<ModelMenteqe>();
             }
+            ModelMenteqe modelMenteqe = new ModelMenteqe() {MenteqeID=0,MenteqeKodu=""};
+            menteqes.Insert(0, modelMenteqe);
             return menteqes;
+        }
+        public List<ModelProspektKuce> prospektkucheload(short menteqeid)
+        {
+            List<ModelProspektKuce> prospektuches;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                prospektuches = (from pr in db.ProspektKuches
+                                 join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
+                                 equals prkdm.ProspektKucheID
+                                 where prkdm.MenteqeID == menteqeid
+                                 select new ModelProspektKuce()
+                                 {
+                                     ProspKucheDaireMentID = prkdm.ProspKucheDaireMentID,
+                                     ProspektKucheAdi = pr.ProspektKucheAdi
+                                 }
+                     ).ToList<ModelProspektKuce>();
+            }
+            ModelProspektKuce modelProspektKuce = new ModelProspektKuce() { ProspKucheDaireMentID = 0, ProspektKucheAdi = "" };
+            prospektuches.Insert(0, modelProspektKuce);
+            return prospektuches;
+        }
+        public List<Ev> evload(int ProspKucheDaireMentID)
+        {
+            List<Ev> evler;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                evler = (from ev in db.Evs
+                         where ev.ProspKucheDaireMentID == ProspKucheDaireMentID
+                         orderby ev.EvAdi
+                         select ev
+                     ).ToList<Ev>();
+            }
+            Ev modev = new Ev() { EvID = 0, EvAdi = "" };
+            evler.Insert(0, modev);
+            return evler;
         }
         public List<ModelDaimi> daimiload(short MenteqeID)
         {
@@ -148,36 +185,7 @@ namespace Dais.Models
             }
             return unvan;
         }
-        public List<ModelProspektKuce> prospektkucheload(short menteqeid)
-        {
-            List<ModelProspektKuce> prospektuches;
-            using (EntityDataModels db = new EntityDataModels())
-            {
-                prospektuches = (from pr in db.ProspektKuches
-                                 join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
-                                 equals prkdm.ProspektKucheID
-                                 where prkdm.MenteqeID == menteqeid
-                                 select new ModelProspektKuce()
-                                 {
-                                     ProspKucheDaireMentID = prkdm.ProspKucheDaireMentID,
-                                     ProspektKucheAdi = pr.ProspektKucheAdi
-                                 }
-                     ).ToList<ModelProspektKuce>();
-            }
-            return prospektuches;
-        }
-        public List<Ev> evload(int ProspKucheDaireMentID)
-        {
-            List<Ev> evler;
-            using (EntityDataModels db = new EntityDataModels())
-            {
-                evler = (from ev in db.Evs
-                         where ev.ProspKucheDaireMentID == ProspKucheDaireMentID
-                         orderby ev.EvAdi
-                         select ev
-                     ).ToList<Ev>();
-            }
-            return evler;
-        }
+        
+       
     }
 }

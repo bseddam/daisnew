@@ -75,6 +75,12 @@ namespace Dais
             cmbprospkuce.ValueMember = "ProspKucheDaireMentID";
             cmbprospkuce.DisplayMember = "ProspektKucheAdi";
         }
+        void cmbevload(int ProspKucheDaireMentID)
+        {
+            cmbev.DataSource = fcl.evload(ProspKucheDaireMentID);
+            cmbev.ValueMember = "EvID";
+            cmbev.DisplayMember = "EvAdi";
+        }
         void cmbbinamertebeload()
         {
             cmbbinamertebe.DataSource = fcl.binamertebeload();
@@ -110,13 +116,14 @@ namespace Dais
 
         private void cmbprospkuce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            short number = 0;
-            if (short.TryParse(cmbprospkuce.SelectedValue.ToString(), out number))
+            if (cmbprospkuce.SelectedValue != null)
             {
-                int ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
-                cmbev.DataSource = fcl.evload(ProspKucheDaireMentID);
-                cmbev.ValueMember = "EvID";
-                cmbev.DisplayMember = "EvAdi";
+                short number = 0;
+                if (short.TryParse(cmbprospkuce.SelectedValue.ToString(), out number))
+                {
+                    int ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
+                    cmbevload(ProspKucheDaireMentID);
+                }
             }
         }
 
@@ -129,9 +136,12 @@ namespace Dais
                 short number = 0;
                 byte number1 = 0;
                 int number2 = 0;
-                if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
+                if (cmbmenteqe.SelectedValue != null)
                 {
-                    daimi.MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
+                    if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
+                    {
+                        daimi.MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
+                    }
                 }
                 if (cmbev.SelectedValue != null)
                 {
@@ -140,24 +150,36 @@ namespace Dais
                         daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
                     }
                 }
-                if (short.TryParse(cmbprospkuce.SelectedValue.ToString(), out number))
+                if (cmbprospkuce.SelectedValue != null)
                 {
-                    daimi.ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
+                    if (int.TryParse(cmbprospkuce.SelectedValue.ToString(), out number2))
+                    {
+                        daimi.ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
+                    }
                 }
                 daimi.Soyad = txtsoyad.Text;
                 daimi.Ad = txtad.Text;
                 daimi.AtaAdi = txtataadi.Text;
-                if (byte.TryParse(cmbdogumgunu.SelectedValue.ToString(), out number1))
+                if (cmbdogumgunu.SelectedValue != null)
                 {
-                    daimi.DogumGunu = byte.Parse(cmbdogumgunu.SelectedValue.ToString());
+                    if (byte.TryParse(cmbdogumgunu.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.DogumGunu = byte.Parse(cmbdogumgunu.SelectedValue.ToString());
+                    }
                 }
-                if (byte.TryParse(cmbdogumay.SelectedValue.ToString(), out number1))
+                if (cmbdogumay.SelectedValue != null)
                 {
-                    daimi.DogumAyi = byte.Parse(cmbdogumay.SelectedValue.ToString());
+                    if (byte.TryParse(cmbdogumay.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.DogumAyi = byte.Parse(cmbdogumay.SelectedValue.ToString());
+                    }
                 }
-                if (short.TryParse(cmbdogumili.SelectedValue.ToString(), out number))
+                if (cmbdogumili.SelectedValue != null)
                 {
-                    daimi.DogumIli = short.Parse(cmbdogumili.SelectedValue.ToString());
+                    if (short.TryParse(cmbdogumili.SelectedValue.ToString(), out number))
+                    {
+                        daimi.DogumIli = short.Parse(cmbdogumili.SelectedValue.ToString());
+                    }
                 }
                 if (rbqadin.Checked)
                 {
@@ -167,23 +189,35 @@ namespace Dais
                 {
                     daimi.Cins = true;
                 }
-                if (byte.TryParse(cmbbinamertebe.SelectedValue.ToString(), out number1))
+                if (cmbbinamertebe.SelectedValue != null)
                 {
-                    daimi.Mertebe = byte.Parse(cmbbinamertebe.SelectedValue.ToString());
+                    if (byte.TryParse(cmbbinamertebe.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.Mertebe = byte.Parse(cmbbinamertebe.SelectedValue.ToString());
+                    }
                 }
 
                 daimi.Menzil = txtmenzil.Text;
-                if (byte.TryParse(cmbstatus.SelectedValue.ToString(), out number1))
+                if (cmbstatus.SelectedValue != null)
                 {
-                    daimi.SeciciStatusID = byte.Parse(cmbstatus.SelectedValue.ToString());
+                    if (byte.TryParse(cmbstatus.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.SeciciStatusID = byte.Parse(cmbstatus.SelectedValue.ToString());
+                    }
                 }
-                if (byte.TryParse(cmbsebeb.SelectedValue.ToString(), out number1))
+                if (cmbsebeb.SelectedValue != null)
                 {
-                    daimi.QeydiyyatSebebID = byte.Parse(cmbsebeb.SelectedValue.ToString());
+                    if (byte.TryParse(cmbsebeb.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.QeydiyyatSebebID = byte.Parse(cmbsebeb.SelectedValue.ToString());
+                    }
                 }
-                if (byte.TryParse(cmbseriya.SelectedValue.ToString(), out number1))
+                if (cmbseriya.SelectedValue != null)
                 {
-                    daimi.VesiqeSeriyaID = byte.Parse(cmbseriya.SelectedValue.ToString());
+                    if (byte.TryParse(cmbseriya.SelectedValue.ToString(), out number1))
+                    {
+                        daimi.VesiqeSeriyaID = byte.Parse(cmbseriya.SelectedValue.ToString());
+                    }
                 }
                 daimi.VesiqeNomresi = txtvesiqenomresi.Text;
                 //if (byte.TryParse(cmbqurumadi.SelectedValue.ToString(), out number1))
@@ -193,7 +227,6 @@ namespace Dais
 
                 daimi.VesiqeVerilmeTarixi = DateTime.Parse(dtpvesverilmetar.Text);
                 daimi.VesiqeEtibarliqTarixi = DateTime.Parse(dtpvesverilmetar.Text);
-
                 daimi.DaxiledilmeTarixi = DateTime.Now;
                 daimi.Pinkod = txtfinkod.Text;
                 daimi.QeyCixmaVereqi = false;
@@ -205,7 +238,9 @@ namespace Dais
                 {
                     string errorlar = "";
                     foreach (ValidationResult result in errors)
+                    { 
                         errorlar = errorlar + " " + result.ErrorMessage;
+                    }
                     MessageBox.Show(errorlar);
                 }
                 else
@@ -213,13 +248,10 @@ namespace Dais
 
                     db.Daimis.Add(daimi);
                     db.SaveChanges();
-                    
                     grvdaimi.DataSource = fcl.daimiload(daimi.MenteqeID);;
                     MessageBox.Show("Seçici əlavə olundu");
 
                 }
-
-                
             }
         }
     }

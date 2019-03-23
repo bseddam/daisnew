@@ -99,6 +99,7 @@
     <Compile Include="Models\ModelMenteqe.cs" />
     <Compile Include="Models\ModelMertebe.cs" />
     <Compile Include="Models\ModelProspektKuce.cs" />
+    <Compile Include="Models\ModelQurumAdi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DaimiUC.resx">

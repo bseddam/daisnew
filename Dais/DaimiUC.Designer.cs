@@ -513,13 +513,13 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(56, 17);
             this.radioButton1.TabIndex = 94;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Köhnə";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
             this.radioButton2.Location = new System.Drawing.Point(102, 6);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(46, 17);
