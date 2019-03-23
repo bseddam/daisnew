@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dais.Models
 {
-    class ModelQurumAdi
+    class ModelQurum
     {
-        public byte QurumID { get; set; }
+        public byte? QurumID { get; set; }
         public string QurumAdi { get; set; }
     }
 }

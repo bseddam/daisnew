@@ -27,7 +27,6 @@ namespace Dais
         {
             MenuFRM menu = this.Parent as MenuFRM;
             cmbmenteqeload(menu.daire.DaireKodu);
-            
             cmbbinamertebeload();
             cmbsebeblaod();
             cmbdogumiliload();
@@ -35,9 +34,14 @@ namespace Dais
             cmbdogumgunuload();
             cmbseriyaload();
             cmbstatuslaod();
-
+            cmbqurumadiload();
         }
-       
+        void cmbqurumadiload()
+        {
+            cmbqurumadi.DataSource = fcl.qurumload();
+            cmbqurumadi.ValueMember = "QurumID";
+            cmbqurumadi.DisplayMember = "QurumAdi";
+        }
         void cmbseriyaload()
         {
             cmbseriya.DataSource = fcl.seriyaload();
@@ -103,11 +107,9 @@ namespace Dais
         private void cmbmenteqe_SelectedIndexChanged(object sender, EventArgs e)
         {
             short number = 0;
-            
             if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
             {
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
-                
                 lblseherqesebekend.Text = fcl.unvanload(MenteqeID);
                 cmbprospkuceload(MenteqeID);
                 grvdaimi.DataSource = fcl.daimiload(MenteqeID);
@@ -129,7 +131,6 @@ namespace Dais
 
         private void btntesdiqdaimi_Click(object sender, EventArgs e)
         {
-
             using (EntityDataModels db = new EntityDataModels())
             {
                 Daimi daimi = new Daimi();

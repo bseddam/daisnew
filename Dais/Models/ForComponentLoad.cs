@@ -22,9 +22,10 @@ namespace Dais.Models
                                 MenteqeID = men.MenteqeID,
                                 MenteqeKodu = men.MenteqeKodu.ToString()
                             }).ToList<ModelMenteqe>();
+                ModelMenteqe modelMenteqe = new ModelMenteqe() { MenteqeID = 0, MenteqeKodu = "" };
+                menteqes.Insert(0, modelMenteqe);
             }
-            ModelMenteqe modelMenteqe = new ModelMenteqe() {MenteqeID=0,MenteqeKodu=""};
-            menteqes.Insert(0, modelMenteqe);
+           
             return menteqes;
         }
         public List<ModelProspektKuce> prospektkucheload(short menteqeid)
@@ -42,9 +43,10 @@ namespace Dais.Models
                                      ProspektKucheAdi = pr.ProspektKucheAdi
                                  }
                      ).ToList<ModelProspektKuce>();
+                ModelProspektKuce modelProspektKuce = new ModelProspektKuce() { ProspKucheDaireMentID = 0, ProspektKucheAdi = "" };
+                prospektuches.Insert(0, modelProspektKuce);
             }
-            ModelProspektKuce modelProspektKuce = new ModelProspektKuce() { ProspKucheDaireMentID = 0, ProspektKucheAdi = "" };
-            prospektuches.Insert(0, modelProspektKuce);
+
             return prospektuches;
         }
         public List<Ev> evload(int ProspKucheDaireMentID)
@@ -57,9 +59,10 @@ namespace Dais.Models
                          orderby ev.EvAdi
                          select ev
                      ).ToList<Ev>();
+                Ev modev = new Ev() { EvID = 0, EvAdi = "" };
+                evler.Insert(0, modev);
             }
-            Ev modev = new Ev() { EvID = 0, EvAdi = "" };
-            evler.Insert(0, modev);
+
             return evler;
         }
         public List<ModelDaimi> daimiload(short MenteqeID)
@@ -84,6 +87,22 @@ namespace Dais.Models
                           }).ToList<ModelDaimi>();
             }
             return daimis;
+        }
+        public List<ModelQurum> qurumload()
+        {
+            List<ModelQurum> Qurums;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                Qurums = (from qurum in db.Rayons orderby qurum.RayonAdi
+                               select new ModelQurum()
+                               { QurumID = qurum.RayonKodu, QurumAdi = qurum.RayonAdi+" RPŞ" }
+                               ).ToList();
+                //ModelQurum modelQurum = new ModelQurum() { QurumID = 0, QurumAdi = "" };
+                //Qurums.Insert(0, modelQurum);
+                ModelQurum modelQurum1 = new ModelQurum() { QurumID = 0, QurumAdi = "Asan Xidmət Mərkəzi" };
+                Qurums.Insert(0, modelQurum1);
+            }
+            return Qurums;
         }
         public List<QeydiyyatSebeb> sebebload()
         {
@@ -123,8 +142,10 @@ namespace Dais.Models
             List<ModelMertebe> mertebes = new List<ModelMertebe>();
             for (byte i = 1; i <= 50; i++)
             {
-                mertebes.Add(new ModelMertebe() { ID = i, Mertebenomresi = i });
+                mertebes.Add(new ModelMertebe() { ID = i, Mertebenomresi = i.ToString() });
             }
+            ModelMertebe modelMertebe = new ModelMertebe() { ID = 0, Mertebenomresi="" };
+            mertebes.Insert(0, modelMertebe);
             return mertebes;
         }
         public List<ModelDogumili> dogumiliload()

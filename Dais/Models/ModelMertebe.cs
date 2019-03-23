@@ -9,6 +9,6 @@ namespace Dais.Models
     class ModelMertebe
     {
         public byte ID { get; set; }
-        public byte Mertebenomresi { get; set; }
+        public string Mertebenomresi { get; set; }
     }
 }

@@ -80,7 +80,7 @@
             this.pnlheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlheader.Location = new System.Drawing.Point(0, 0);
             this.pnlheader.Name = "pnlheader";
-            this.pnlheader.Size = new System.Drawing.Size(1109, 23);
+            this.pnlheader.Size = new System.Drawing.Size(934, 23);
             this.pnlheader.TabIndex = 3;
             // 
             // lbldskadi
@@ -89,7 +89,7 @@
             this.lbldskadi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbldskadi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldskadi.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbldskadi.Location = new System.Drawing.Point(857, 0);
+            this.lbldskadi.Location = new System.Drawing.Point(682, 0);
             this.lbldskadi.Name = "lbldskadi";
             this.lbldskadi.Size = new System.Drawing.Size(252, 19);
             this.lbldskadi.TabIndex = 3;
@@ -369,9 +369,10 @@
             // 
             // daimiUC1
             // 
-            this.daimiUC1.Location = new System.Drawing.Point(0, 29);
+            this.daimiUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.daimiUC1.Location = new System.Drawing.Point(0, 23);
             this.daimiUC1.Name = "daimiUC1";
-            this.daimiUC1.Size = new System.Drawing.Size(1104, 619);
+            this.daimiUC1.Size = new System.Drawing.Size(934, 638);
             this.daimiUC1.TabIndex = 4;
             // 
             // MenuFRM
@@ -379,7 +380,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1109, 647);
+            this.ClientSize = new System.Drawing.Size(934, 661);
             this.Controls.Add(this.daimiUC1);
             this.Controls.Add(this.pnlheader);
             this.Name = "MenuFRM";
