@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.grvmaps = new System.Windows.Forms.DataGridView();
             this.grvdaimi = new System.Windows.Forms.DataGridView();
             this.pnldaimisol = new System.Windows.Forms.Panel();
             this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
@@ -82,13 +83,12 @@
             this.txtad = new System.Windows.Forms.TextBox();
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
-            this.grvmaps = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).BeginInit();
             this.pnldaimisol.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -107,6 +107,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.5873F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(965, 504);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // grvmaps
+            // 
+            this.grvmaps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvmaps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grvmaps.Location = new System.Drawing.Point(4, 373);
+            this.grvmaps.Margin = new System.Windows.Forms.Padding(4);
+            this.grvmaps.Name = "grvmaps";
+            this.grvmaps.Size = new System.Drawing.Size(552, 127);
+            this.grvmaps.TabIndex = 162;
             // 
             // grvdaimi
             // 
@@ -164,9 +174,10 @@
             this.pnldaimisol.Controls.Add(this.txtad);
             this.pnldaimisol.Controls.Add(this.lblsoyad);
             this.pnldaimisol.Controls.Add(this.txtsoyad);
+            this.pnldaimisol.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnldaimisol.Location = new System.Drawing.Point(3, 3);
             this.pnldaimisol.Name = "pnldaimisol";
-            this.pnldaimisol.Size = new System.Drawing.Size(545, 363);
+            this.pnldaimisol.Size = new System.Drawing.Size(554, 363);
             this.pnldaimisol.TabIndex = 1;
             // 
             // dtpvesetibartar
@@ -698,16 +709,6 @@
             this.txtsoyad.Size = new System.Drawing.Size(112, 20);
             this.txtsoyad.TabIndex = 105;
             // 
-            // grvmaps
-            // 
-            this.grvmaps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvmaps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grvmaps.Location = new System.Drawing.Point(4, 373);
-            this.grvmaps.Margin = new System.Windows.Forms.Padding(4);
-            this.grvmaps.Name = "grvmaps";
-            this.grvmaps.Size = new System.Drawing.Size(552, 127);
-            this.grvmaps.TabIndex = 162;
-            // 
             // DaimiUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,6 +718,7 @@
             this.Size = new System.Drawing.Size(965, 504);
             this.Load += new System.EventHandler(this.DaimiUC_Load_1);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).EndInit();
             this.pnldaimisol.ResumeLayout(false);
             this.pnldaimisol.PerformLayout();
@@ -724,7 +726,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -103,6 +103,18 @@ namespace Dais
             cmbstatus.ValueMember = "SeciciStatusID";
             cmbstatus.DisplayMember = "SeciciStatusAdi";
         }
+        void grvdaimiload(short MenteqeID)
+        {
+            grvdaimi.DataSource = fcl.daimiload(MenteqeID);
+            grvdaimi.Columns["MenteqeKodu"].HeaderText = "Məntəqə";
+            grvdaimi.Columns["Soyad"].HeaderText = "Soyad";
+            grvdaimi.Columns["Ad"].HeaderText = "Ad";
+            grvdaimi.Columns["AtaAdi"].HeaderText = "Ata Adi";
+            grvdaimi.Columns["Dogumili"].HeaderText = "Doğum ili";
+            grvdaimi.Columns["Pinkod"].HeaderText = "Finkod";
+            grvdaimi.Columns["VesiqeNomresi"].HeaderText = "Vəsiqə Nömrəsi";
+            grvdaimi.Columns["Cins"].HeaderText = "Cins";
+        }
 
         private void cmbmenteqe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -112,7 +124,7 @@ namespace Dais
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
                 lblseherqesebekend.Text = fcl.unvanload(MenteqeID);
                 cmbprospkuceload(MenteqeID);
-                grvdaimi.DataSource = fcl.daimiload(MenteqeID);
+                grvdaimiload(MenteqeID);
             }  
         }
 
@@ -136,26 +148,36 @@ namespace Dais
                 Daimi daimi = new Daimi();
                 short number = 0;
                 byte number1 = 0;
-                int number2 = 0;
+                string mesajlar = "";
                 if (cmbmenteqe.SelectedValue != null)
                 {
-                    if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
+                    if (short.Parse(cmbmenteqe.SelectedValue.ToString())!=0)
                     {
                         daimi.MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
                     }
+                    else
+                    { 
+                        mesajlar = mesajlar + "Məntəqə boş ola bilməz.";
+                    }
                 }
+               
                 if (cmbev.SelectedValue != null)
                 {
-                    if (int.TryParse(cmbev.SelectedValue.ToString(), out number2))
+                    if (int.Parse(cmbev.SelectedValue.ToString())!=0)
                     {
                         daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
                     }
+
                 }
                 if (cmbprospkuce.SelectedValue != null)
                 {
-                    if (int.TryParse(cmbprospkuce.SelectedValue.ToString(), out number2))
+                    if (int.Parse(cmbprospkuce.SelectedValue.ToString()) != 0)
                     {
                         daimi.ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        mesajlar = mesajlar + " Prospekt küçə boş ola bilməz.";
                     }
                 }
                 daimi.Soyad = txtsoyad.Text;
@@ -231,25 +253,26 @@ namespace Dais
                 daimi.DaxiledilmeTarixi = DateTime.Now;
                 daimi.Pinkod = txtfinkod.Text;
                 daimi.QeyCixmaVereqi = false;
-
+                
                 ValidationContext context = new ValidationContext(daimi, null, null);
                 IList<ValidationResult> errors = new List<ValidationResult>();
 
-                if (!Validator.TryValidateObject(daimi, context, errors, true))
+                
+                if (!Validator.TryValidateObject(daimi, context, errors, true) || mesajlar!="")
                 {
-                    string errorlar = "";
                     foreach (ValidationResult result in errors)
-                    { 
-                        errorlar = errorlar + " " + result.ErrorMessage;
+                    {
+                        mesajlar = mesajlar + " " + result.ErrorMessage;
                     }
-                    MessageBox.Show(errorlar);
+                    MessageBox.Show(mesajlar);
                 }
                 else
                 {
 
                     db.Daimis.Add(daimi);
                     db.SaveChanges();
-                    grvdaimi.DataSource = fcl.daimiload(daimi.MenteqeID);;
+                    grvdaimiload(daimi.MenteqeID);
+                    
                     MessageBox.Show("Seçici əlavə olundu");
 
                 }

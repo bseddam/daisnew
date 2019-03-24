@@ -8,7 +8,7 @@ namespace Dais.Models
 {
     class ModelDaimi
     {
-        public short MenteqeID { get; set; }
+        public byte MenteqeKodu { get; set; }
         public string Soyad { get; set; }
         public string Ad { get; set; }
         public string AtaAdi { get; set; }

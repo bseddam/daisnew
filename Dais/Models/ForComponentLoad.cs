@@ -76,7 +76,7 @@ namespace Dais.Models
                           orderby d.SeciciID descending
                           select new ModelDaimi
                           {
-                              MenteqeID= men.MenteqeKodu,
+                              MenteqeKodu = men.MenteqeKodu,
                               Soyad= d.Soyad,
                               Ad= d.Ad,
                               AtaAdi= d.AtaAdi,
