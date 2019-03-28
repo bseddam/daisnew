@@ -278,5 +278,10 @@ namespace Dais
                 }
             }
         }
+
+        private void btnduzelis_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbllaypanel = new System.Windows.Forms.TableLayoutPanel();
             this.grvmaps = new System.Windows.Forms.DataGridView();
-            this.grvdaimi = new System.Windows.Forms.DataGridView();
             this.pnldaimisol = new System.Windows.Forms.Panel();
             this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
@@ -83,30 +82,36 @@
             this.txtad = new System.Windows.Forms.TextBox();
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.grvdaimi = new System.Windows.Forms.DataGridView();
+            this.btnyeni = new System.Windows.Forms.Button();
+            this.btnduzelis = new System.Windows.Forms.Button();
+            this.btnsil = new System.Windows.Forms.Button();
+            this.tbllaypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).BeginInit();
             this.pnldaimisol.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tbllaypanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.05085F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.94915F));
-            this.tableLayoutPanel1.Controls.Add(this.grvmaps, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.grvdaimi, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pnldaimisol, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.4127F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.5873F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(965, 504);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tbllaypanel.ColumnCount = 2;
+            this.tbllaypanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.05085F));
+            this.tbllaypanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.94915F));
+            this.tbllaypanel.Controls.Add(this.grvmaps, 0, 1);
+            this.tbllaypanel.Controls.Add(this.pnldaimisol, 0, 0);
+            this.tbllaypanel.Controls.Add(this.panel1, 1, 0);
+            this.tbllaypanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbllaypanel.Location = new System.Drawing.Point(0, 0);
+            this.tbllaypanel.Name = "tbllaypanel";
+            this.tbllaypanel.RowCount = 2;
+            this.tbllaypanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.4127F));
+            this.tbllaypanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.5873F));
+            this.tbllaypanel.Size = new System.Drawing.Size(965, 504);
+            this.tbllaypanel.TabIndex = 0;
             // 
             // grvmaps
             // 
@@ -117,15 +122,6 @@
             this.grvmaps.Name = "grvmaps";
             this.grvmaps.Size = new System.Drawing.Size(552, 127);
             this.grvmaps.TabIndex = 162;
-            // 
-            // grvdaimi
-            // 
-            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvdaimi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grvdaimi.Location = new System.Drawing.Point(563, 3);
-            this.grvdaimi.Name = "grvdaimi";
-            this.grvdaimi.Size = new System.Drawing.Size(399, 363);
-            this.grvdaimi.TabIndex = 153;
             // 
             // pnldaimisol
             // 
@@ -433,7 +429,7 @@
             this.cmbev.Location = new System.Drawing.Point(10, 70);
             this.cmbev.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cmbev.Name = "cmbev";
-            this.cmbev.Size = new System.Drawing.Size(70, 21);
+            this.cmbev.Size = new System.Drawing.Size(112, 21);
             this.cmbev.TabIndex = 123;
             // 
             // btntesdiqdaimi
@@ -709,30 +705,79 @@
             this.txtsoyad.Size = new System.Drawing.Size(112, 20);
             this.txtsoyad.TabIndex = 105;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnsil);
+            this.panel1.Controls.Add(this.btnduzelis);
+            this.panel1.Controls.Add(this.btnyeni);
+            this.panel1.Controls.Add(this.grvdaimi);
+            this.panel1.Location = new System.Drawing.Point(563, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(399, 363);
+            this.panel1.TabIndex = 163;
+            // 
+            // grvdaimi
+            // 
+            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvdaimi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grvdaimi.Location = new System.Drawing.Point(0, 31);
+            this.grvdaimi.Name = "grvdaimi";
+            this.grvdaimi.Size = new System.Drawing.Size(399, 332);
+            this.grvdaimi.TabIndex = 164;
+            // 
+            // btnyeni
+            // 
+            this.btnyeni.Location = new System.Drawing.Point(0, 2);
+            this.btnyeni.Name = "btnyeni";
+            this.btnyeni.Size = new System.Drawing.Size(120, 23);
+            this.btnyeni.TabIndex = 165;
+            this.btnyeni.Text = "Yeni";
+            this.btnyeni.UseVisualStyleBackColor = true;
+            // 
+            // btnduzelis
+            // 
+            this.btnduzelis.Location = new System.Drawing.Point(150, 2);
+            this.btnduzelis.Name = "btnduzelis";
+            this.btnduzelis.Size = new System.Drawing.Size(120, 23);
+            this.btnduzelis.TabIndex = 166;
+            this.btnduzelis.Text = "Düzəliş";
+            this.btnduzelis.UseVisualStyleBackColor = true;
+            this.btnduzelis.Click += new System.EventHandler(this.btnduzelis_Click);
+            // 
+            // btnsil
+            // 
+            this.btnsil.Location = new System.Drawing.Point(300, 1);
+            this.btnsil.Name = "btnsil";
+            this.btnsil.Size = new System.Drawing.Size(99, 23);
+            this.btnsil.TabIndex = 167;
+            this.btnsil.Text = "Sil";
+            this.btnsil.UseVisualStyleBackColor = true;
+            // 
             // DaimiUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tbllaypanel);
             this.Name = "DaimiUC";
             this.Size = new System.Drawing.Size(965, 504);
             this.Load += new System.EventHandler(this.DaimiUC_Load_1);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tbllaypanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).EndInit();
             this.pnldaimisol.ResumeLayout(false);
             this.pnldaimisol.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tbllaypanel;
         private System.Windows.Forms.Panel pnldaimisol;
         private System.Windows.Forms.DateTimePicker dtpvesetibartar;
         private System.Windows.Forms.DateTimePicker dtpvesverilmetar;
@@ -785,7 +830,11 @@
         private System.Windows.Forms.TextBox txtad;
         private System.Windows.Forms.Label lblsoyad;
         private System.Windows.Forms.TextBox txtsoyad;
-        private System.Windows.Forms.DataGridView grvdaimi;
         private System.Windows.Forms.DataGridView grvmaps;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView grvdaimi;
+        private System.Windows.Forms.Button btnyeni;
+        private System.Windows.Forms.Button btnsil;
+        private System.Windows.Forms.Button btnduzelis;
     }
 }
