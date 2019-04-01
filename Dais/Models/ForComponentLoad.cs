@@ -76,6 +76,7 @@ namespace Dais.Models
                           orderby d.SeciciID descending
                           select new ModelDaimi
                           {
+                              SeciciID=d.SeciciID,
                               MenteqeKodu = men.MenteqeKodu,
                               Soyad= d.Soyad,
                               Ad= d.Ad,
@@ -84,6 +85,7 @@ namespace Dais.Models
                               Pinkod= d.Pinkod,
                               VesiqeNomresi= d.VesiqeNomresi,
                               Cins =(d.Cins==false?"Qadın": "Kişi")
+                              
                           }).ToList<ModelDaimi>();
             }
             return daimis;

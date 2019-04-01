@@ -107,6 +107,7 @@ namespace Dais
         void grvdaimiload(short MenteqeID)
         {
             grvdaimi.DataSource = fcl.daimiload(MenteqeID);
+            grvdaimi.Columns["SeciciID"].Visible = false;
             grvdaimi.Columns["MenteqeKodu"].HeaderText = "Məntəqə";
             grvdaimi.Columns["Soyad"].HeaderText = "Soyad";
             grvdaimi.Columns["Ad"].HeaderText = "Ad";
@@ -327,6 +328,11 @@ namespace Dais
                 {
                     ComboBox cmb1 = item as ComboBox;
                     cmb1.SelectedIndex = 0;
+                }
+                if (item.GetType().Equals(typeof(DateTimePicker)))
+                {
+                    DateTimePicker dateTimePicker = item as DateTimePicker;
+                    dateTimePicker.Text = "" ;
                 }
             }
             rbkisi.Checked = false;
