@@ -35,6 +35,7 @@ namespace Dais
             cmbseriyaload();
             cmbstatuslaod();
             cmbqurumadiload();
+
         }
         void cmbqurumadiload()
         {
@@ -151,19 +152,19 @@ namespace Dais
                 string mesajlar = "";
                 if (cmbmenteqe.SelectedValue != null)
                 {
-                    if (short.Parse(cmbmenteqe.SelectedValue.ToString())!=0)
+                    if (short.Parse(cmbmenteqe.SelectedValue.ToString()) != 0)
                     {
                         daimi.MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
                     }
                     else
-                    { 
+                    {
                         mesajlar = mesajlar + "Məntəqə boş ola bilməz.";
                     }
                 }
-               
+
                 if (cmbev.SelectedValue != null)
                 {
-                    if (int.Parse(cmbev.SelectedValue.ToString())!=0)
+                    if (int.Parse(cmbev.SelectedValue.ToString()) != 0)
                     {
                         daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
                     }
@@ -204,13 +205,19 @@ namespace Dais
                         daimi.DogumIli = short.Parse(cmbdogumili.SelectedValue.ToString());
                     }
                 }
+
                 if (rbqadin.Checked)
                 {
                     daimi.Cins = false;
+                    
+                }
+                else if (rbkisi.Checked)
+                {
+                    daimi.Cins = true;
                 }
                 else
                 {
-                    daimi.Cins = true;
+                    mesajlar = mesajlar + " Cins boş ola bilməz.";
                 }
                 if (cmbbinamertebe.SelectedValue != null)
                 {
@@ -253,12 +260,12 @@ namespace Dais
                 daimi.DaxiledilmeTarixi = DateTime.Now;
                 daimi.Pinkod = txtfinkod.Text;
                 daimi.QeyCixmaVereqi = false;
-                
+
                 ValidationContext context = new ValidationContext(daimi, null, null);
                 IList<ValidationResult> errors = new List<ValidationResult>();
 
-                
-                if (!Validator.TryValidateObject(daimi, context, errors, true) || mesajlar!="")
+
+                if (!Validator.TryValidateObject(daimi, context, errors, true) || mesajlar != "")
                 {
                     foreach (ValidationResult result in errors)
                     {
@@ -271,6 +278,8 @@ namespace Dais
 
                     db.Daimis.Add(daimi);
                     db.SaveChanges();
+                    bosalt();
+                    enablefalsetrue(false);
                     grvdaimiload(daimi.MenteqeID);
                     
                     MessageBox.Show("Seçici əlavə olundu");
@@ -282,6 +291,73 @@ namespace Dais
         private void btnduzelis_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void grvdaimi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtsoyad.Text = grvdaimi.Rows[e.RowIndex].Cells["Soyad"].Value.ToString();
+                txtad.Text = grvdaimi.Rows[e.RowIndex].Cells["Ad"].Value.ToString();
+                txtataadi.Text = grvdaimi.Rows[e.RowIndex].Cells["AtaAdi"].Value.ToString();
+                cmbdogumili.SelectedValue = int.Parse(grvdaimi.Rows[e.RowIndex].Cells["Dogumili"].Value.ToString());
+                if (grvdaimi.Rows[e.RowIndex].Cells["Cins"].Value.ToString() == "Qadın")
+                {
+                    rbkisi.Checked = false;
+                    rbqadin.Checked = true;
+                }
+                else
+                {
+                    rbkisi.Checked = true;
+                    rbqadin.Checked = false;
+                }
+                //txtfinkod.Text = grvdaimi.Rows[e.RowIndex].Cells["Pinkod"].Value.ToString();
+            }
+        }
+        void bosalt()
+        {
+            foreach (Control item in this.pnldaimisol.Controls)
+            {
+                if (item.GetType().Equals(typeof(TextBox)))
+                {
+                    TextBox t1 = item as TextBox;
+                    t1.Text = string.Empty;
+                }
+                if (item.GetType().Equals(typeof(ComboBox)))
+                {
+                    ComboBox cmb1 = item as ComboBox;
+                    cmb1.SelectedIndex = 0;
+                }
+            }
+            rbkisi.Checked = false;
+            rbqadin.Checked = false;
+            rbyeni.Checked = false;
+            rbkohne.Checked = false;
+        }
+        void enablefalsetrue(bool dey)
+        {
+            foreach (Control item in this.pnldaimisol.Controls)
+            {
+                if (item.GetType().Equals(typeof(TextBox)))
+                {
+                    TextBox t1 = item as TextBox;
+                    t1.Enabled= dey;
+                }
+                if (item.GetType().Equals(typeof(ComboBox)))
+                {
+                    ComboBox cmb1 = item as ComboBox;
+                    cmb1.Enabled= dey;
+                }
+            }
+            rbkisi.Enabled = dey;
+            rbqadin.Enabled = dey;
+            rbyeni.Enabled = dey;
+            rbkohne.Enabled = dey;
+        }
+        private void btnyeni_Click(object sender, EventArgs e)
+        {
+            bosalt();
+            enablefalsetrue(true);
         }
     }
 }

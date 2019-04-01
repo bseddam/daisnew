@@ -66,3 +66,4 @@ C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.csproj.CoreCompileIn
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.csproj.CopyComplete
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.exe
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.pdb
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.Form1.resources

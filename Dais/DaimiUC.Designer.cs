@@ -34,8 +34,8 @@
             this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbkohne = new System.Windows.Forms.RadioButton();
+            this.rbyeni = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rbqadin = new System.Windows.Forms.RadioButton();
@@ -83,10 +83,10 @@
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.grvdaimi = new System.Windows.Forms.DataGridView();
-            this.btnyeni = new System.Windows.Forms.Button();
-            this.btnduzelis = new System.Windows.Forms.Button();
             this.btnsil = new System.Windows.Forms.Button();
+            this.btnduzelis = new System.Windows.Forms.Button();
+            this.btnyeni = new System.Windows.Forms.Button();
+            this.grvdaimi = new System.Windows.Forms.DataGridView();
             this.tbllaypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             this.pnldaimisol.SuspendLayout();
@@ -197,35 +197,33 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.radioButton1);
-            this.panel3.Controls.Add(this.radioButton2);
+            this.panel3.Controls.Add(this.rbkohne);
+            this.panel3.Controls.Add(this.rbyeni);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(136, 219);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(136, 49);
             this.panel3.TabIndex = 147;
             // 
-            // radioButton1
+            // rbkohne
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(51, 22);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(56, 17);
-            this.radioButton1.TabIndex = 94;
-            this.radioButton1.Text = "Köhnə";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbkohne.AutoSize = true;
+            this.rbkohne.Location = new System.Drawing.Point(51, 22);
+            this.rbkohne.Name = "rbkohne";
+            this.rbkohne.Size = new System.Drawing.Size(56, 17);
+            this.rbkohne.TabIndex = 94;
+            this.rbkohne.Text = "Köhnə";
+            this.rbkohne.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbyeni
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 22);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 17);
-            this.radioButton2.TabIndex = 93;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Yeni";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbyeni.AutoSize = true;
+            this.rbyeni.Location = new System.Drawing.Point(3, 22);
+            this.rbyeni.Name = "rbyeni";
+            this.rbyeni.Size = new System.Drawing.Size(46, 17);
+            this.rbyeni.TabIndex = 93;
+            this.rbyeni.Text = "Yeni";
+            this.rbyeni.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -262,13 +260,11 @@
             // rbkisi
             // 
             this.rbkisi.AutoSize = true;
-            this.rbkisi.Checked = true;
             this.rbkisi.Location = new System.Drawing.Point(6, 28);
             this.rbkisi.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.rbkisi.Name = "rbkisi";
             this.rbkisi.Size = new System.Drawing.Size(41, 17);
             this.rbkisi.TabIndex = 65;
-            this.rbkisi.TabStop = true;
             this.rbkisi.Text = "Kişi";
             this.rbkisi.UseVisualStyleBackColor = true;
             // 
@@ -716,23 +712,14 @@
             this.panel1.Size = new System.Drawing.Size(399, 363);
             this.panel1.TabIndex = 163;
             // 
-            // grvdaimi
+            // btnsil
             // 
-            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvdaimi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvdaimi.Location = new System.Drawing.Point(0, 31);
-            this.grvdaimi.Name = "grvdaimi";
-            this.grvdaimi.Size = new System.Drawing.Size(399, 332);
-            this.grvdaimi.TabIndex = 164;
-            // 
-            // btnyeni
-            // 
-            this.btnyeni.Location = new System.Drawing.Point(0, 2);
-            this.btnyeni.Name = "btnyeni";
-            this.btnyeni.Size = new System.Drawing.Size(120, 23);
-            this.btnyeni.TabIndex = 165;
-            this.btnyeni.Text = "Yeni";
-            this.btnyeni.UseVisualStyleBackColor = true;
+            this.btnsil.Location = new System.Drawing.Point(300, 1);
+            this.btnsil.Name = "btnsil";
+            this.btnsil.Size = new System.Drawing.Size(99, 23);
+            this.btnsil.TabIndex = 167;
+            this.btnsil.Text = "Sil";
+            this.btnsil.UseVisualStyleBackColor = true;
             // 
             // btnduzelis
             // 
@@ -744,14 +731,25 @@
             this.btnduzelis.UseVisualStyleBackColor = true;
             this.btnduzelis.Click += new System.EventHandler(this.btnduzelis_Click);
             // 
-            // btnsil
+            // btnyeni
             // 
-            this.btnsil.Location = new System.Drawing.Point(300, 1);
-            this.btnsil.Name = "btnsil";
-            this.btnsil.Size = new System.Drawing.Size(99, 23);
-            this.btnsil.TabIndex = 167;
-            this.btnsil.Text = "Sil";
-            this.btnsil.UseVisualStyleBackColor = true;
+            this.btnyeni.Location = new System.Drawing.Point(0, 2);
+            this.btnyeni.Name = "btnyeni";
+            this.btnyeni.Size = new System.Drawing.Size(120, 23);
+            this.btnyeni.TabIndex = 165;
+            this.btnyeni.Text = "Yeni";
+            this.btnyeni.UseVisualStyleBackColor = true;
+            this.btnyeni.Click += new System.EventHandler(this.btnyeni_Click);
+            // 
+            // grvdaimi
+            // 
+            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvdaimi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grvdaimi.Location = new System.Drawing.Point(0, 31);
+            this.grvdaimi.Name = "grvdaimi";
+            this.grvdaimi.Size = new System.Drawing.Size(399, 332);
+            this.grvdaimi.TabIndex = 164;
+            this.grvdaimi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvdaimi_CellClick);
             // 
             // DaimiUC
             // 
@@ -782,8 +780,8 @@
         private System.Windows.Forms.DateTimePicker dtpvesetibartar;
         private System.Windows.Forms.DateTimePicker dtpvesverilmetar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbkohne;
+        private System.Windows.Forms.RadioButton rbyeni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rbqadin;
@@ -832,9 +830,9 @@
         private System.Windows.Forms.TextBox txtsoyad;
         private System.Windows.Forms.DataGridView grvmaps;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView grvdaimi;
-        private System.Windows.Forms.Button btnyeni;
         private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.Button btnduzelis;
+        private System.Windows.Forms.Button btnyeni;
+        private System.Windows.Forms.DataGridView grvdaimi;
     }
 }
