@@ -83,10 +83,10 @@
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.grvdaimi = new System.Windows.Forms.DataGridView();
             this.btnsil = new System.Windows.Forms.Button();
             this.btnduzelis = new System.Windows.Forms.Button();
             this.btnyeni = new System.Windows.Forms.Button();
-            this.grvdaimi = new System.Windows.Forms.DataGridView();
             this.tbllaypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             this.pnldaimisol.SuspendLayout();
@@ -703,14 +703,23 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.grvdaimi);
             this.panel1.Controls.Add(this.btnsil);
             this.panel1.Controls.Add(this.btnduzelis);
             this.panel1.Controls.Add(this.btnyeni);
-            this.panel1.Controls.Add(this.grvdaimi);
             this.panel1.Location = new System.Drawing.Point(563, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 363);
             this.panel1.TabIndex = 163;
+            // 
+            // grvdaimi
+            // 
+            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvdaimi.Location = new System.Drawing.Point(0, 51);
+            this.grvdaimi.Name = "grvdaimi";
+            this.grvdaimi.Size = new System.Drawing.Size(396, 308);
+            this.grvdaimi.TabIndex = 168;
+            this.grvdaimi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvdaimi_CellClick);
             // 
             // btnsil
             // 
@@ -740,16 +749,6 @@
             this.btnyeni.Text = "Yeni";
             this.btnyeni.UseVisualStyleBackColor = true;
             this.btnyeni.Click += new System.EventHandler(this.btnyeni_Click);
-            // 
-            // grvdaimi
-            // 
-            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvdaimi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvdaimi.Location = new System.Drawing.Point(0, 31);
-            this.grvdaimi.Name = "grvdaimi";
-            this.grvdaimi.Size = new System.Drawing.Size(399, 332);
-            this.grvdaimi.TabIndex = 164;
-            this.grvdaimi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvdaimi_CellClick);
             // 
             // DaimiUC
             // 
