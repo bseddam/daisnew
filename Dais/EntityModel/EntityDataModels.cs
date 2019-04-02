@@ -25,6 +25,7 @@ namespace Dais.EntityModel
         public virtual DbSet<QeydiyyatSebeb> QeydiyyatSebebs { get; set; }
         public virtual DbSet<Rayon> Rayons { get; set; }
         public virtual DbSet<SeciciStatu> SeciciStatus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UnvanStatu> UnvanStatus { get; set; }
         public virtual DbSet<VesiqeSeriya> VesiqeSeriyas { get; set; }
         public virtual DbSet<VesiqeTipi> VesiqeTipis { get; set; }
@@ -41,6 +42,10 @@ namespace Dais.EntityModel
             modelBuilder.Entity<Daimi>()
                 .Property(e => e.SeciciID)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Daimi>()
+                .Property(e => e.Giris)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Daimi>()
                 .Property(e => e.Menzil)
@@ -83,6 +88,13 @@ namespace Dais.EntityModel
             modelBuilder.Entity<Menteqe>()
                 .HasMany(e => e.ProspKucheDaireMents)
                 .WithRequired(e => e.Menteqe)
+                .HasForeignKey(e => e.MenteqeID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Menteqe>()
+                .HasMany(e => e.ProspKucheDaireMents1)
+                .WithRequired(e => e.Menteqe1)
+                .HasForeignKey(e => e.MenteqeID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MenteqeNov>()
@@ -92,9 +104,8 @@ namespace Dais.EntityModel
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ProspektKuche>()
-                .HasMany(e => e.ProspKucheDaireMents)
-                .WithRequired(e => e.ProspektKuche)
-                .WillCascadeOnDelete(false);
+                .HasOptional(e => e.ProspKucheDaireMent)
+                .WithRequired(e => e.ProspektKuche);
 
             modelBuilder.Entity<ProspKucheDaireMent>()
                 .HasMany(e => e.Evs)
@@ -124,6 +135,11 @@ namespace Dais.EntityModel
             modelBuilder.Entity<VesiqeSeriya>()
                 .Property(e => e.VesiqeSeriyaAdi)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<YashayishMenteqesi>()
+                .HasMany(e => e.ProspektKuches)
+                .WithRequired(e => e.YashayishMenteqesi)
+                .WillCascadeOnDelete(false);
         }
     }
 }

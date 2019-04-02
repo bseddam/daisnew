@@ -83,6 +83,7 @@
     <Compile Include="EntityModel\QeydiyyatSebeb.cs" />
     <Compile Include="EntityModel\Rayon.cs" />
     <Compile Include="EntityModel\SeciciStatu.cs" />
+    <Compile Include="EntityModel\sysdiagram.cs" />
     <Compile Include="EntityModel\UnvanStatu.cs" />
     <Compile Include="EntityModel\VesiqeSeriya.cs" />
     <Compile Include="EntityModel\VesiqeTipi.cs" />

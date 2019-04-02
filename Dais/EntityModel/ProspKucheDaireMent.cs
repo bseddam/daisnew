@@ -26,6 +26,8 @@ namespace Dais.EntityModel
 
         public virtual Menteqe Menteqe { get; set; }
 
+        public virtual Menteqe Menteqe1 { get; set; }
+
         public virtual ProspektKuche ProspektKuche { get; set; }
     }
 }

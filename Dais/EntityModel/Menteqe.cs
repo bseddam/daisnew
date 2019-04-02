@@ -14,6 +14,7 @@ namespace Dais.EntityModel
         {
             Daimis = new HashSet<Daimi>();
             ProspKucheDaireMents = new HashSet<ProspKucheDaireMent>();
+            ProspKucheDaireMents1 = new HashSet<ProspKucheDaireMent>();
         }
 
         public short MenteqeID { get; set; }
@@ -69,5 +70,8 @@ namespace Dais.EntityModel
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProspKucheDaireMent> ProspKucheDaireMents { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProspKucheDaireMent> ProspKucheDaireMents1 { get; set; }
     }
 }

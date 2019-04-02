@@ -1,4 +1,4 @@
-﻿namespace Dais.EntityModel
+namespace Dais.EntityModel
 {
     using System;
     using System.Collections.Generic;
@@ -16,21 +16,21 @@
 
         public short MenteqeID { get; set; }
 
+        public short? YashayishMenteqesiID { get; set; }
+
         public int? EvID { get; set; }
 
         public int? ProspKucheDaireMentID { get; set; }
 
-       
-        [Required(ErrorMessage = "Soyad boş ola bilməz.")]
+        [Required]
         [StringLength(50)]
         public string Soyad { get; set; }
 
-      
-        [Required(ErrorMessage = "Ad boş ola bilməz.")]
+        [Required]
         [StringLength(50)]
         public string Ad { get; set; }
 
-        [Required(ErrorMessage = "Ata adı boş ola bilməz.")]
+        [Required]
         [StringLength(50)]
         public string AtaAdi { get; set; }
 
@@ -47,6 +47,9 @@
         public byte? Mertebe { get; set; }
 
         [StringLength(10)]
+        public string Giris { get; set; }
+
+        [StringLength(10)]
         public string Menzil { get; set; }
 
         public byte SeciciStatusID { get; set; }
@@ -60,8 +63,10 @@
 
         public byte? VesiqeVerenQurum { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? VesiqeVerilmeTarixi { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? VesiqeEtibarliqTarixi { get; set; }
 
         [StringLength(7)]
@@ -82,5 +87,7 @@
         public virtual SeciciStatu SeciciStatu { get; set; }
 
         public virtual VesiqeSeriya VesiqeSeriya { get; set; }
+
+        public virtual YashayishMenteqesi YashayishMenteqesi { get; set; }
     }
 }
