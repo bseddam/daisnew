@@ -30,6 +30,7 @@ namespace Dais.EntityModel
         public virtual DbSet<VesiqeSeriya> VesiqeSeriyas { get; set; }
         public virtual DbSet<VesiqeTipi> VesiqeTipis { get; set; }
         public virtual DbSet<YashayishMenteqesi> YashayishMenteqesis { get; set; }
+        public virtual DbSet<YashMenDaireMent> YashMenDaireMents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -86,15 +87,8 @@ namespace Dais.EntityModel
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Menteqe>()
-                .HasMany(e => e.ProspKucheDaireMents)
+                .HasMany(e => e.YashMenDaireMents)
                 .WithRequired(e => e.Menteqe)
-                .HasForeignKey(e => e.MenteqeID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Menteqe>()
-                .HasMany(e => e.ProspKucheDaireMents1)
-                .WithRequired(e => e.Menteqe1)
-                .HasForeignKey(e => e.MenteqeID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MenteqeNov>()
@@ -102,10 +96,6 @@ namespace Dais.EntityModel
                 .WithRequired(e => e.MenteqeNov)
                 .HasForeignKey(e => e.MeneteqeNovID)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ProspektKuche>()
-                .HasOptional(e => e.ProspKucheDaireMent)
-                .WithRequired(e => e.ProspektKuche);
 
             modelBuilder.Entity<ProspKucheDaireMent>()
                 .HasMany(e => e.Evs)
@@ -138,6 +128,11 @@ namespace Dais.EntityModel
 
             modelBuilder.Entity<YashayishMenteqesi>()
                 .HasMany(e => e.ProspektKuches)
+                .WithRequired(e => e.YashayishMenteqesi)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<YashayishMenteqesi>()
+                .HasMany(e => e.YashMenDaireMents)
                 .WithRequired(e => e.YashayishMenteqesi)
                 .WillCascadeOnDelete(false);
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dais.Models
 {
-    class ModelYashayishMenteqesi
+    class ModelYashMenDaireMent
     {
-        public int YashayishMenteqesiID { get; set; }
+        public short YashMenDaireMentID { get; set; }
         public string YashayishMenteqesiAdi { get; set; }
     }
 }

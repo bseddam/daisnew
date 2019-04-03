@@ -28,25 +28,27 @@ namespace Dais.Models
            
             return menteqes;
         }
-        public List<ModelYashayishMenteqesi> YashayishMenteqesiload(short menteqeid)
+        public List<ModelYashMenDaireMent> YashayishMenteqesiload(short menteqeid)
         {
-            List<ModelYashayishMenteqesi> yashayishMenteqesis;
+            List<ModelYashMenDaireMent> yashayishMenteqesis;
             using (EntityDataModels db = new EntityDataModels())
             {
                 yashayishMenteqesis = (from yasmen in db.YashayishMenteqesis
-                                       where yasmen.MenteqeID == menteqeid
-                                       select new ModelYashayishMenteqesi()
+                                       join yasmendm in db.YashMenDaireMents on yasmen.YashayishMenteqesiID
+                                       equals yasmendm.YashayishMenteqesiID
+                                       where yasmendm.MenteqeID == menteqeid
+                                       select new ModelYashMenDaireMent()
                                        {
-                                           YashayishMenteqesiID = yasmen.YashayishMenteqesiID,
+                                           YashMenDaireMentID = yasmendm.YashMenDaireMentID,
                                            YashayishMenteqesiAdi = yasmen.YashayishMenteqesiAdi
-                                       }).ToList<ModelYashayishMenteqesi>();
-                ModelYashayishMenteqesi modelMenteqe = new ModelYashayishMenteqesi()
-                { YashayishMenteqesiID = 0, YashayishMenteqesiAdi = "" };
+                                       }).ToList<ModelYashMenDaireMent>();
+                ModelYashMenDaireMent modelMenteqe = new ModelYashMenDaireMent()
+                { YashMenDaireMentID = 0, YashayishMenteqesiAdi = "" };
                 yashayishMenteqesis.Insert(0, modelMenteqe);
             }
             return yashayishMenteqesis;
         }
-        public List<ModelProspektKuce> prospektkucheload(short menteqeid)
+        public List<ModelProspektKuce> prospektkucheload(short YashMenDaireMentID)
         {
             List<ModelProspektKuce> prospektuches;
             using (EntityDataModels db = new EntityDataModels())
@@ -54,7 +56,7 @@ namespace Dais.Models
                 prospektuches = (from pr in db.ProspektKuches
                                  join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
                                  equals prkdm.ProspektKucheID
-                                 where prkdm.MenteqeID == menteqeid
+                                 where prkdm.YashMenDaireMentID == YashMenDaireMentID
                                  select new ModelProspektKuce()
                                  {
                                      ProspKucheDaireMentID = prkdm.ProspKucheDaireMentID,

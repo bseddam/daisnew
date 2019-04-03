@@ -16,7 +16,7 @@ namespace Dais.EntityModel
 
         public short MenteqeID { get; set; }
 
-        public short? YashayishMenteqesiID { get; set; }
+        public short? YashMenDaireMentID { get; set; }
 
         public int? EvID { get; set; }
 
@@ -82,12 +82,14 @@ namespace Dais.EntityModel
 
         public virtual Menteqe Menteqe { get; set; }
 
+        public virtual ProspKucheDaireMent ProspKucheDaireMent { get; set; }
+
         public virtual QeydiyyatSebeb QeydiyyatSebeb { get; set; }
 
         public virtual SeciciStatu SeciciStatu { get; set; }
 
         public virtual VesiqeSeriya VesiqeSeriya { get; set; }
 
-        public virtual YashayishMenteqesi YashayishMenteqesi { get; set; }
+        public virtual YashMenDaireMent YashMenDaireMent { get; set; }
     }
 }

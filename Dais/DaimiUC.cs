@@ -77,12 +77,12 @@ namespace Dais
         void cmbyasmenload(short MenteqeID)
         {
             cmbyasmen.DataSource = fcl.YashayishMenteqesiload(MenteqeID);
-            cmbyasmen.ValueMember = "YashayishMenteqesiID";
+            cmbyasmen.ValueMember = "YashMenDaireMentID";
             cmbyasmen.DisplayMember = "YashayishMenteqesiAdi";
         }
-        void cmbprospkuceload(short MenteqeID)
+        void cmbprospkuceload(short YashMenDaireMentID)
         {
-            cmbprospkuce.DataSource = fcl.prospektkucheload(MenteqeID);
+            cmbprospkuce.DataSource = fcl.prospektkucheload(YashMenDaireMentID);
             cmbprospkuce.ValueMember = "ProspKucheDaireMentID";
             cmbprospkuce.DisplayMember = "ProspektKucheAdi";
         }
@@ -131,7 +131,6 @@ namespace Dais
             {
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
                 cmbyasmenload(MenteqeID);
-                cmbprospkuceload(MenteqeID);
                 grvdaimiload(MenteqeID);
             }  
         }
@@ -168,14 +167,16 @@ namespace Dais
                         mesajlar = mesajlar + "Məntəqə boş ola bilməz.";
                     }
                 }
-
-                if (cmbev.SelectedValue != null)
+                if (cmbyasmen.SelectedValue != null)
                 {
-                    if (int.Parse(cmbev.SelectedValue.ToString()) != 0)
+                    if (int.Parse(cmbyasmen.SelectedValue.ToString()) != 0)
                     {
-                        daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
+                        daimi.YashMenDaireMentID = short.Parse(cmbyasmen.SelectedValue.ToString());
                     }
-
+                    else
+                    {
+                        mesajlar = mesajlar + " Yaşayış məntəqəsi boş ola bilməz.";
+                    }
                 }
                 if (cmbprospkuce.SelectedValue != null)
                 {
@@ -188,6 +189,15 @@ namespace Dais
                         mesajlar = mesajlar + " Prospekt küçə boş ola bilməz.";
                     }
                 }
+                if (cmbev.SelectedValue != null)
+                {
+                    if (int.Parse(cmbev.SelectedValue.ToString()) != 0)
+                    {
+                        daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
+                    }
+
+                }
+
                 daimi.Soyad = txtsoyad.Text;
                 daimi.Ad = txtad.Text;
                 daimi.AtaAdi = txtataadi.Text;
@@ -300,10 +310,6 @@ namespace Dais
 
         }
 
-        private void grvdaimi_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-        }
         void bosalt()
         {
             foreach (Control item in this.pnldaimisol.Controls)
@@ -395,6 +401,15 @@ namespace Dais
 
 
         }
-        
+
+        private void cmbyasmen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            short number = 0;
+            if (short.TryParse(cmbyasmen.SelectedValue.ToString(), out number))
+            {
+                short YashMenDaireMentID = short.Parse(cmbyasmen.SelectedValue.ToString());
+                cmbprospkuceload(YashMenDaireMentID);
+            }
+        }
     }
 }

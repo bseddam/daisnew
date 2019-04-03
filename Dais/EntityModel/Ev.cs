@@ -23,13 +23,13 @@ namespace Dais.EntityModel
 
         public int ProspKucheDaireMentID { get; set; }
 
-        public short? YashayishMenteqesiID { get; set; }
+        public short? YashMenDaireMentID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Daimi> Daimis { get; set; }
 
         public virtual ProspKucheDaireMent ProspKucheDaireMent { get; set; }
 
-        public virtual YashayishMenteqesi YashayishMenteqesi { get; set; }
+        public virtual YashMenDaireMent YashMenDaireMent { get; set; }
     }
 }

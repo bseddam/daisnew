@@ -31,6 +31,7 @@
             this.tbllaypanel = new System.Windows.Forms.TableLayoutPanel();
             this.grvmaps = new System.Windows.Forms.DataGridView();
             this.pnldaimisol = new System.Windows.Forms.Panel();
+            this.cmbyasmen = new System.Windows.Forms.ComboBox();
             this.dtpvesetibartar = new System.Windows.Forms.DateTimePicker();
             this.dtpvesverilmetar = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -87,7 +88,6 @@
             this.btnsil = new System.Windows.Forms.Button();
             this.btnduzelis = new System.Windows.Forms.Button();
             this.btnyeni = new System.Windows.Forms.Button();
-            this.cmbyasmen = new System.Windows.Forms.ComboBox();
             this.tbllaypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             this.pnldaimisol.SuspendLayout();
@@ -177,6 +177,17 @@
             this.pnldaimisol.Name = "pnldaimisol";
             this.pnldaimisol.Size = new System.Drawing.Size(554, 363);
             this.pnldaimisol.TabIndex = 1;
+            // 
+            // cmbyasmen
+            // 
+            this.cmbyasmen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbyasmen.FormattingEnabled = true;
+            this.cmbyasmen.Location = new System.Drawing.Point(93, 23);
+            this.cmbyasmen.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.cmbyasmen.Name = "cmbyasmen";
+            this.cmbyasmen.Size = new System.Drawing.Size(170, 21);
+            this.cmbyasmen.TabIndex = 150;
+            this.cmbyasmen.SelectedIndexChanged += new System.EventHandler(this.cmbyasmen_SelectedIndexChanged);
             // 
             // dtpvesetibartar
             // 
@@ -751,16 +762,6 @@
             this.btnyeni.Text = "Yeni";
             this.btnyeni.UseVisualStyleBackColor = true;
             this.btnyeni.Click += new System.EventHandler(this.btnyeni_Click);
-            // 
-            // cmbyasmen
-            // 
-            this.cmbyasmen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbyasmen.FormattingEnabled = true;
-            this.cmbyasmen.Location = new System.Drawing.Point(93, 23);
-            this.cmbyasmen.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.cmbyasmen.Name = "cmbyasmen";
-            this.cmbyasmen.Size = new System.Drawing.Size(170, 21);
-            this.cmbyasmen.TabIndex = 150;
             // 
             // DaimiUC
             // 

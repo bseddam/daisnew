@@ -9,6 +9,12 @@ namespace Dais.EntityModel
     [Table("ProspektKuche")]
     public partial class ProspektKuche
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProspektKuche()
+        {
+            ProspKucheDaireMents = new HashSet<ProspKucheDaireMent>();
+        }
+
         public int ProspektKucheID { get; set; }
 
         [Required]
@@ -19,6 +25,7 @@ namespace Dais.EntityModel
 
         public virtual YashayishMenteqesi YashayishMenteqesi { get; set; }
 
-        public virtual ProspKucheDaireMent ProspKucheDaireMent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProspKucheDaireMent> ProspKucheDaireMents { get; set; }
     }
 }
