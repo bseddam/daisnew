@@ -85,7 +85,6 @@ namespace Dais.Models
                               Pinkod= d.Pinkod,
                               VesiqeNomresi= d.VesiqeNomresi,
                               Cins =(d.Cins==false?"Qadın": "Kişi")
-                              
                           }).ToList<ModelDaimi>();
             }
             return daimis;

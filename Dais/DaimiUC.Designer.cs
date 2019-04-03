@@ -83,7 +83,8 @@
             this.lblsoyad = new System.Windows.Forms.Label();
             this.txtsoyad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.grvdaimi = new System.Windows.Forms.DataGridView();
+            this.gcdaimi = new DevExpress.XtraGrid.GridControl();
+            this.grvdaimi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnsil = new System.Windows.Forms.Button();
             this.btnduzelis = new System.Windows.Forms.Button();
             this.btnyeni = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcdaimi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,7 +204,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(136, 219);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(136, 49);
+            this.panel3.Size = new System.Drawing.Size(127, 49);
             this.panel3.TabIndex = 147;
             // 
             // rbkohne
@@ -703,7 +705,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.grvdaimi);
+            this.panel1.Controls.Add(this.gcdaimi);
             this.panel1.Controls.Add(this.btnsil);
             this.panel1.Controls.Add(this.btnduzelis);
             this.panel1.Controls.Add(this.btnyeni);
@@ -712,14 +714,23 @@
             this.panel1.Size = new System.Drawing.Size(399, 363);
             this.panel1.TabIndex = 163;
             // 
+            // gcdaimi
+            // 
+            this.gcdaimi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gcdaimi.Location = new System.Drawing.Point(0, 31);
+            this.gcdaimi.MainView = this.grvdaimi;
+            this.gcdaimi.Name = "gcdaimi";
+            this.gcdaimi.Size = new System.Drawing.Size(399, 332);
+            this.gcdaimi.TabIndex = 168;
+            this.gcdaimi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvdaimi});
+            // 
             // grvdaimi
             // 
-            this.grvdaimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvdaimi.Location = new System.Drawing.Point(0, 51);
+            this.grvdaimi.GridControl = this.gcdaimi;
             this.grvdaimi.Name = "grvdaimi";
-            this.grvdaimi.Size = new System.Drawing.Size(396, 308);
-            this.grvdaimi.TabIndex = 168;
-            this.grvdaimi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvdaimi_CellClick);
+            this.grvdaimi.OptionsBehavior.Editable = false;
+            this.grvdaimi.Click += new System.EventHandler(this.grvdaimi_Click);
             // 
             // btnsil
             // 
@@ -767,6 +778,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcdaimi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdaimi)).EndInit();
             this.ResumeLayout(false);
 
@@ -832,6 +844,7 @@
         private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.Button btnduzelis;
         private System.Windows.Forms.Button btnyeni;
-        private System.Windows.Forms.DataGridView grvdaimi;
+        private DevExpress.XtraGrid.GridControl gcdaimi;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvdaimi;
     }
 }

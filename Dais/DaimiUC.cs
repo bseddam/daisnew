@@ -106,16 +106,16 @@ namespace Dais
         }
         void grvdaimiload(short MenteqeID)
         {
-            grvdaimi.DataSource = fcl.daimiload(MenteqeID);
+            gcdaimi.DataSource = fcl.daimiload(MenteqeID);
             grvdaimi.Columns["SeciciID"].Visible = false;
-            grvdaimi.Columns["MenteqeKodu"].HeaderText = "Məntəqə";
-            grvdaimi.Columns["Soyad"].HeaderText = "Soyad";
-            grvdaimi.Columns["Ad"].HeaderText = "Ad";
-            grvdaimi.Columns["AtaAdi"].HeaderText = "Ata Adi";
-            grvdaimi.Columns["Dogumili"].HeaderText = "Doğum ili";
-            grvdaimi.Columns["Pinkod"].HeaderText = "Finkod";
-            grvdaimi.Columns["VesiqeNomresi"].HeaderText = "Vəsiqə Nömrəsi";
-            grvdaimi.Columns["Cins"].HeaderText = "Cins";
+            grvdaimi.Columns["MenteqeKodu"].Caption = "Məntəqə";
+            grvdaimi.Columns["Soyad"].Caption = "Soyad";
+            grvdaimi.Columns["Ad"].Caption = "Ad";
+            grvdaimi.Columns["AtaAdi"].Caption = "Ata Adi";
+            grvdaimi.Columns["Dogumili"].Caption = "Doğum ili";
+            grvdaimi.Columns["Pinkod"].Caption = "Finkod";
+            grvdaimi.Columns["VesiqeNomresi"].Caption = "Vəsiqə Nömrəsi";
+            grvdaimi.Columns["Cins"].Caption = "Cins";
         }
 
         private void cmbmenteqe_SelectedIndexChanged(object sender, EventArgs e)
@@ -296,24 +296,7 @@ namespace Dais
 
         private void grvdaimi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
-            {
-                txtsoyad.Text = grvdaimi.Rows[e.RowIndex].Cells["Soyad"].Value.ToString();
-                txtad.Text = grvdaimi.Rows[e.RowIndex].Cells["Ad"].Value.ToString();
-                txtataadi.Text = grvdaimi.Rows[e.RowIndex].Cells["AtaAdi"].Value.ToString();
-                cmbdogumili.SelectedValue = int.Parse(grvdaimi.Rows[e.RowIndex].Cells["Dogumili"].Value.ToString());
-                if (grvdaimi.Rows[e.RowIndex].Cells["Cins"].Value.ToString() == "Qadın")
-                {
-                    rbkisi.Checked = false;
-                    rbqadin.Checked = true;
-                }
-                else
-                {
-                    rbkisi.Checked = true;
-                    rbqadin.Checked = false;
-                }
-                //txtfinkod.Text = grvdaimi.Rows[e.RowIndex].Cells["Pinkod"].Value.ToString();
-            }
+          
         }
         void bosalt()
         {
@@ -365,5 +348,47 @@ namespace Dais
             bosalt();
             enablefalsetrue(true);
         }
+
+        private void grvdaimi_Click(object sender, EventArgs e)
+        {
+
+            var index = grvdaimi.FocusedRowHandle;
+            if(grvdaimi.GetRowCellValue(index, "Soyad")!=null)
+            { 
+            txtsoyad.Text = grvdaimi.GetRowCellValue(index, "Soyad").ToString();
+            }
+            if (grvdaimi.GetRowCellValue(index, "Ad") != null)
+            {
+                txtad.Text = grvdaimi.GetRowCellValue(index, "Ad").ToString();
+            }
+            if (grvdaimi.GetRowCellValue(index, "AtaAdi") != null)
+            {
+                txtataadi.Text = grvdaimi.GetRowCellValue(index, "AtaAdi").ToString();
+            }
+            if (grvdaimi.GetRowCellValue(index, "Dogumili") != null)
+            {
+                cmbdogumili.SelectedValue = int.Parse(grvdaimi.GetRowCellValue(index, "Dogumili").ToString());
+            }
+            if (grvdaimi.GetRowCellValue(index, "Cins") != null)
+            {
+                if (grvdaimi.GetRowCellValue(index, "Cins").ToString() == "Qadın")
+                {
+                    rbkisi.Checked = false;
+                    rbqadin.Checked = true;
+                }
+            }
+            else
+            {
+                rbkisi.Checked = true;
+                rbqadin.Checked = false;
+            }
+            if (grvdaimi.GetRowCellValue(index, "Pinkod") != null)
+            {
+                txtfinkod.Text = grvdaimi.GetRowCellValue(index, "Pinkod").ToString();
+            }
+
+
+        }
+        
     }
 }
