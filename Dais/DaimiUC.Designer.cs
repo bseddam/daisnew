@@ -46,7 +46,6 @@
             this.cmbstatus = new System.Windows.Forms.ComboBox();
             this.lblstatus = new System.Windows.Forms.Label();
             this.txtfinkod = new System.Windows.Forms.TextBox();
-            this.lblseherqesebekend = new System.Windows.Forms.Label();
             this.txtmenzil = new System.Windows.Forms.TextBox();
             this.cmbsebeb = new System.Windows.Forms.ComboBox();
             this.lblsebeb = new System.Windows.Forms.Label();
@@ -73,7 +72,7 @@
             this.lbldogumayi = new System.Windows.Forms.Label();
             this.cmbdogumgunu = new System.Windows.Forms.ComboBox();
             this.lbldogumgunu = new System.Windows.Forms.Label();
-            this.lblunvan = new System.Windows.Forms.Label();
+            this.lblyasmen = new System.Windows.Forms.Label();
             this.cmbmenteqe = new System.Windows.Forms.ComboBox();
             this.lblmenteqe = new System.Windows.Forms.Label();
             this.lblataadi = new System.Windows.Forms.Label();
@@ -88,6 +87,7 @@
             this.btnsil = new System.Windows.Forms.Button();
             this.btnduzelis = new System.Windows.Forms.Button();
             this.btnyeni = new System.Windows.Forms.Button();
+            this.cmbyasmen = new System.Windows.Forms.ComboBox();
             this.tbllaypanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvmaps)).BeginInit();
             this.pnldaimisol.SuspendLayout();
@@ -127,6 +127,7 @@
             // 
             // pnldaimisol
             // 
+            this.pnldaimisol.Controls.Add(this.cmbyasmen);
             this.pnldaimisol.Controls.Add(this.dtpvesetibartar);
             this.pnldaimisol.Controls.Add(this.dtpvesverilmetar);
             this.pnldaimisol.Controls.Add(this.panel3);
@@ -136,7 +137,6 @@
             this.pnldaimisol.Controls.Add(this.cmbstatus);
             this.pnldaimisol.Controls.Add(this.lblstatus);
             this.pnldaimisol.Controls.Add(this.txtfinkod);
-            this.pnldaimisol.Controls.Add(this.lblseherqesebekend);
             this.pnldaimisol.Controls.Add(this.txtmenzil);
             this.pnldaimisol.Controls.Add(this.cmbsebeb);
             this.pnldaimisol.Controls.Add(this.lblsebeb);
@@ -163,7 +163,7 @@
             this.pnldaimisol.Controls.Add(this.lbldogumayi);
             this.pnldaimisol.Controls.Add(this.cmbdogumgunu);
             this.pnldaimisol.Controls.Add(this.lbldogumgunu);
-            this.pnldaimisol.Controls.Add(this.lblunvan);
+            this.pnldaimisol.Controls.Add(this.lblyasmen);
             this.pnldaimisol.Controls.Add(this.cmbmenteqe);
             this.pnldaimisol.Controls.Add(this.lblmenteqe);
             this.pnldaimisol.Controls.Add(this.lblataadi);
@@ -330,15 +330,6 @@
             this.txtfinkod.Name = "txtfinkod";
             this.txtfinkod.Size = new System.Drawing.Size(112, 20);
             this.txtfinkod.TabIndex = 141;
-            // 
-            // lblseherqesebekend
-            // 
-            this.lblseherqesebekend.AutoSize = true;
-            this.lblseherqesebekend.Location = new System.Drawing.Point(363, 26);
-            this.lblseherqesebekend.Name = "lblseherqesebekend";
-            this.lblseherqesebekend.Size = new System.Drawing.Size(98, 13);
-            this.lblseherqesebekend.TabIndex = 140;
-            this.lblseherqesebekend.Text = "sheherqesebekend";
             // 
             // txtmenzil
             // 
@@ -529,10 +520,10 @@
             // 
             this.cmbprospkuce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbprospkuce.FormattingEnabled = true;
-            this.cmbprospkuce.Location = new System.Drawing.Point(89, 23);
+            this.cmbprospkuce.Location = new System.Drawing.Point(276, 23);
             this.cmbprospkuce.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cmbprospkuce.Name = "cmbprospkuce";
-            this.cmbprospkuce.Size = new System.Drawing.Size(254, 21);
+            this.cmbprospkuce.Size = new System.Drawing.Size(259, 21);
             this.cmbprospkuce.TabIndex = 121;
             this.cmbprospkuce.SelectedIndexChanged += new System.EventHandler(this.cmbprospkuce_SelectedIndexChanged);
             // 
@@ -540,7 +531,7 @@
             // 
             this.lblprospektkuce.AutoSize = true;
             this.lblprospektkuce.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblprospektkuce.Location = new System.Drawing.Point(85, 4);
+            this.lblprospektkuce.Location = new System.Drawing.Point(272, 4);
             this.lblprospektkuce.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblprospektkuce.Name = "lblprospektkuce";
             this.lblprospektkuce.Size = new System.Drawing.Size(116, 17);
@@ -610,16 +601,16 @@
             this.lbldogumgunu.TabIndex = 114;
             this.lbldogumgunu.Text = "Günü:";
             // 
-            // lblunvan
+            // lblyasmen
             // 
-            this.lblunvan.AutoSize = true;
-            this.lblunvan.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblunvan.Location = new System.Drawing.Point(362, 4);
-            this.lblunvan.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblunvan.Name = "lblunvan";
-            this.lblunvan.Size = new System.Drawing.Size(55, 17);
-            this.lblunvan.TabIndex = 113;
-            this.lblunvan.Text = "Ünvan:";
+            this.lblyasmen.AutoSize = true;
+            this.lblyasmen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblyasmen.Location = new System.Drawing.Point(90, 4);
+            this.lblyasmen.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblyasmen.Name = "lblyasmen";
+            this.lblyasmen.Size = new System.Drawing.Size(132, 17);
+            this.lblyasmen.TabIndex = 113;
+            this.lblyasmen.Text = "Yaşayış məntəqəsi:";
             // 
             // cmbmenteqe
             // 
@@ -761,6 +752,16 @@
             this.btnyeni.UseVisualStyleBackColor = true;
             this.btnyeni.Click += new System.EventHandler(this.btnyeni_Click);
             // 
+            // cmbyasmen
+            // 
+            this.cmbyasmen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbyasmen.FormattingEnabled = true;
+            this.cmbyasmen.Location = new System.Drawing.Point(93, 23);
+            this.cmbyasmen.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.cmbyasmen.Name = "cmbyasmen";
+            this.cmbyasmen.Size = new System.Drawing.Size(170, 21);
+            this.cmbyasmen.TabIndex = 150;
+            // 
             // DaimiUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -803,7 +804,6 @@
         private System.Windows.Forms.ComboBox cmbstatus;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.TextBox txtfinkod;
-        private System.Windows.Forms.Label lblseherqesebekend;
         private System.Windows.Forms.TextBox txtmenzil;
         private System.Windows.Forms.ComboBox cmbsebeb;
         private System.Windows.Forms.Label lblsebeb;
@@ -830,7 +830,7 @@
         private System.Windows.Forms.Label lbldogumayi;
         private System.Windows.Forms.ComboBox cmbdogumgunu;
         private System.Windows.Forms.Label lbldogumgunu;
-        private System.Windows.Forms.Label lblunvan;
+        private System.Windows.Forms.Label lblyasmen;
         private System.Windows.Forms.ComboBox cmbmenteqe;
         private System.Windows.Forms.Label lblmenteqe;
         private System.Windows.Forms.Label lblataadi;
@@ -846,5 +846,6 @@
         private System.Windows.Forms.Button btnyeni;
         private DevExpress.XtraGrid.GridControl gcdaimi;
         private DevExpress.XtraGrid.Views.Grid.GridView grvdaimi;
+        private System.Windows.Forms.ComboBox cmbyasmen;
     }
 }

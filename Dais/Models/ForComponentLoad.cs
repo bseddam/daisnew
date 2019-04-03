@@ -28,6 +28,24 @@ namespace Dais.Models
            
             return menteqes;
         }
+        public List<ModelYashayishMenteqesi> YashayishMenteqesiload(short menteqeid)
+        {
+            List<ModelYashayishMenteqesi> yashayishMenteqesis;
+            using (EntityDataModels db = new EntityDataModels())
+            {
+                yashayishMenteqesis = (from yasmen in db.YashayishMenteqesis
+                                       where yasmen.MenteqeID == menteqeid
+                                       select new ModelYashayishMenteqesi()
+                                       {
+                                           YashayishMenteqesiID = yasmen.YashayishMenteqesiID,
+                                           YashayishMenteqesiAdi = yasmen.YashayishMenteqesiAdi
+                                       }).ToList<ModelYashayishMenteqesi>();
+                ModelYashayishMenteqesi modelMenteqe = new ModelYashayishMenteqesi()
+                { YashayishMenteqesiID = 0, YashayishMenteqesiAdi = "" };
+                yashayishMenteqesis.Insert(0, modelMenteqe);
+            }
+            return yashayishMenteqesis;
+        }
         public List<ModelProspektKuce> prospektkucheload(short menteqeid)
         {
             List<ModelProspektKuce> prospektuches;
@@ -190,23 +208,7 @@ namespace Dais.Models
             }
             return dogumgunu;
         }
-        public string unvanload(short menteqeid)
-        {
-            string unvan;
-            using (EntityDataModels db = new EntityDataModels())
-            {
-                unvan = (from yasmen in db.YashayishMenteqesis
-                         join pr in db.ProspektKuches on yasmen.YashayishMenteqesiID
-                         equals pr.YashayishMenteqesiID
-                         join prkdm in db.ProspKucheDaireMents on pr.ProspektKucheID
-                         equals prkdm.ProspektKucheID
-                         join men in db.Menteqes on prkdm.MenteqeID equals men.MenteqeID
-                         join ray in db.Rayons on men.RayonKodu equals ray.RayonKodu
-                         where prkdm.MenteqeID == menteqeid
-                         select ray.RayonAdi + ", " + yasmen.YashayishMenteqesiAdi).FirstOrDefault();
-            }
-            return unvan;
-        }
+       
         
        
     }

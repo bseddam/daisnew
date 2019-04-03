@@ -74,6 +74,12 @@ namespace Dais
             cmbmenteqe.ValueMember = "MenteqeID";
             cmbmenteqe.DisplayMember = "Menteqekodu";
         }
+        void cmbyasmenload(short MenteqeID)
+        {
+            cmbyasmen.DataSource = fcl.YashayishMenteqesiload(MenteqeID);
+            cmbyasmen.ValueMember = "YashayishMenteqesiID";
+            cmbyasmen.DisplayMember = "YashayishMenteqesiAdi";
+        }
         void cmbprospkuceload(short MenteqeID)
         {
             cmbprospkuce.DataSource = fcl.prospektkucheload(MenteqeID);
@@ -124,7 +130,7 @@ namespace Dais
             if (short.TryParse(cmbmenteqe.SelectedValue.ToString(), out number))
             {
                 short MenteqeID = short.Parse(cmbmenteqe.SelectedValue.ToString());
-                lblseherqesebekend.Text = fcl.unvanload(MenteqeID);
+                cmbyasmenload(MenteqeID);
                 cmbprospkuceload(MenteqeID);
                 grvdaimiload(MenteqeID);
             }  
