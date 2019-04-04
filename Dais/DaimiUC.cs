@@ -195,7 +195,6 @@ namespace Dais
                     {
                         daimi.EvID = int.Parse(cmbev.SelectedValue.ToString());
                     }
-
                 }
 
                 daimi.Soyad = txtsoyad.Text;
@@ -222,7 +221,6 @@ namespace Dais
                         daimi.DogumIli = short.Parse(cmbdogumili.SelectedValue.ToString());
                     }
                 }
-
                 if (rbqadin.Checked)
                 {
                     daimi.Cins = false;
@@ -274,7 +272,7 @@ namespace Dais
 
                 daimi.VesiqeVerilmeTarixi = DateTime.Parse(dtpvesverilmetar.Text);
                 daimi.VesiqeEtibarliqTarixi = DateTime.Parse(dtpvesverilmetar.Text);
-                daimi.DaxiledilmeTarixi = DateTime.Now;
+                daimi.DaxiledilmeTarixi =DateTime.Now;
                 daimi.Pinkod = txtfinkod.Text;
                 daimi.QeyCixmaVereqi = false;
 
@@ -292,7 +290,6 @@ namespace Dais
                 }
                 else
                 {
-
                     db.Daimis.Add(daimi);
                     db.SaveChanges();
                     bosalt();
@@ -300,15 +297,11 @@ namespace Dais
                     grvdaimiload(daimi.MenteqeID);
                     
                     MessageBox.Show("Seçici əlavə olundu");
-
                 }
             }
         }
 
-        private void btnduzelis_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         void bosalt()
         {
@@ -360,14 +353,22 @@ namespace Dais
             bosalt();
             enablefalsetrue(true);
         }
+        private void btnduzelis_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnsil_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void grvdaimi_Click(object sender, EventArgs e)
         {
 
             var index = grvdaimi.FocusedRowHandle;
-            if(grvdaimi.GetRowCellValue(index, "Soyad")!=null)
-            { 
-            txtsoyad.Text = grvdaimi.GetRowCellValue(index, "Soyad").ToString();
+            if (grvdaimi.GetRowCellValue(index, "Soyad") != null)
+            {
+                txtsoyad.Text = grvdaimi.GetRowCellValue(index, "Soyad").ToString();
             }
             if (grvdaimi.GetRowCellValue(index, "Ad") != null)
             {
@@ -388,12 +389,13 @@ namespace Dais
                     rbkisi.Checked = false;
                     rbqadin.Checked = true;
                 }
+                else
+                {
+                    rbkisi.Checked = true;
+                    rbqadin.Checked = false;
+                }
             }
-            else
-            {
-                rbkisi.Checked = true;
-                rbqadin.Checked = false;
-            }
+
             if (grvdaimi.GetRowCellValue(index, "Pinkod") != null)
             {
                 txtfinkod.Text = grvdaimi.GetRowCellValue(index, "Pinkod").ToString();
@@ -411,5 +413,8 @@ namespace Dais
                 cmbprospkuceload(YashMenDaireMentID);
             }
         }
+
+
+       
     }
 }

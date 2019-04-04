@@ -67,7 +67,6 @@ C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.csproj.CopyComplete
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.exe
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.pdb
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.Form1.resources
-C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.exe.licenses
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\DevExpress.Data.v18.2.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\DevExpress.Printing.v18.2.Core.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\DevExpress.Utils.v18.2.dll
@@ -153,3 +152,9 @@ C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\de\DevExpress.Office.v18.
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\es\DevExpress.Office.v18.2.Core.resources.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ja\DevExpress.Office.v18.2.Core.resources.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ru\DevExpress.Office.v18.2.Core.resources.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\DevExpress.XtraNavBar.v18.2.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\DevExpress.XtraNavBar.v18.2.xml
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\de\DevExpress.XtraNavBar.v18.2.resources.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\es\DevExpress.XtraNavBar.v18.2.resources.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ja\DevExpress.XtraNavBar.v18.2.resources.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ru\DevExpress.XtraNavBar.v18.2.resources.dll
