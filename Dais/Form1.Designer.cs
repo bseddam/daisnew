@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,14 +58,14 @@
             this.panel2.Size = new System.Drawing.Size(403, 450);
             this.panel2.TabIndex = 1;
             // 
-            // dataGridView1
+            // panel4
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(403, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.panel4.BackColor = System.Drawing.SystemColors.MenuText;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 248);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(397, 202);
+            this.panel4.TabIndex = 1;
             // 
             // panel3
             // 
@@ -76,14 +76,14 @@
             this.panel3.Size = new System.Drawing.Size(397, 248);
             this.panel3.TabIndex = 0;
             // 
-            // panel4
+            // dataGridView1
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.MenuText;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 248);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(397, 202);
-            this.panel4.TabIndex = 1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(403, 450);
+            this.dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -102,11 +102,10 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
     }
 }

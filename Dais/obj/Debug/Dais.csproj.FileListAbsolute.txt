@@ -158,3 +158,4 @@ C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\de\DevExpress.XtraNavBar.
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\es\DevExpress.XtraNavBar.v18.2.resources.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ja\DevExpress.XtraNavBar.v18.2.resources.dll
 C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\bin\Debug\ru\DevExpress.XtraNavBar.v18.2.resources.dll
+C:\Users\bsedd\OneDrive\Desktop\daisnew\Dais\obj\Debug\Dais.exe.licenses

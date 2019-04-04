@@ -63,7 +63,8 @@ namespace Dais.Models
                                      ProspektKucheAdi = pr.ProspektKucheAdi
                                  }
                      ).ToList<ModelProspektKuce>();
-                ModelProspektKuce modelProspektKuce = new ModelProspektKuce() { ProspKucheDaireMentID = 0, ProspektKucheAdi = "" };
+                ModelProspektKuce modelProspektKuce = new ModelProspektKuce() { ProspKucheDaireMentID = 0,
+                    ProspektKucheAdi = "" };
                 prospektuches.Insert(0, modelProspektKuce);
             }
 
