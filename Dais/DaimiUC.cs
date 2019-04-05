@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dais.EntityModel;
 using Dais.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace Dais
 {
@@ -17,9 +18,13 @@ namespace Dais
     {
 
         ForComponentLoad fcl = new ForComponentLoad();
-        
+        Daimi daimi = new Daimi();
+        public int yeniduzelissil { get; set; }
+
+
         public DaimiUC()
         {
+            yeniduzelissil = 0;
             InitializeComponent();
         }
 
@@ -152,7 +157,7 @@ namespace Dais
         {
             using (EntityDataModels db = new EntityDataModels())
             {
-                Daimi daimi = new Daimi();
+                
                 short number = 0;
                 byte number1 = 0;
                 string mesajlar = "";
@@ -180,13 +185,13 @@ namespace Dais
                 }
                 if (cmbprospkuce.SelectedValue != null)
                 {
-                    if (int.Parse(cmbprospkuce.SelectedValue.ToString()) != 0)
+                    //if (int.Parse(cmbprospkuce.SelectedValue.ToString()) != 0)
                     {
                         daimi.ProspKucheDaireMentID = int.Parse(cmbprospkuce.SelectedValue.ToString());
                     }
-                    else
+                    //else
                     {
-                        mesajlar = mesajlar + " Prospekt küçə boş ola bilməz.";
+                        //mesajlar = mesajlar + " Prospekt küçə boş ola bilməz.";
                     }
                 }
                 if (cmbev.SelectedValue != null)
@@ -290,13 +295,21 @@ namespace Dais
                 }
                 else
                 {
-                    db.Daimis.Add(daimi);
-                    db.SaveChanges();
+                    if (daimi.SeciciID == 0)
+                    {
+                        db.Daimis.Add(daimi);
+                        db.SaveChanges();
+                        MessageBox.Show("Seçici əlavə olundu");
+                    }
+                    else
+                    {
+                        db.Entry(daimi).State = EntityState.Modified;
+                        db.SaveChanges();
+                        MessageBox.Show("Seçici düzəliş olundu");
+                    }
                     bosalt();
                     enablefalsetrue(false);
                     grvdaimiload(daimi.MenteqeID);
-                    
-                    MessageBox.Show("Seçici əlavə olundu");
                 }
             }
         }
@@ -355,7 +368,7 @@ namespace Dais
         }
         private void btnduzelis_Click(object sender, EventArgs e)
         {
-
+            yeniduzelissil = 1;
         }
         private void btnsil_Click(object sender, EventArgs e)
         {
@@ -364,8 +377,12 @@ namespace Dais
 
         private void grvdaimi_Click(object sender, EventArgs e)
         {
-
+            
             var index = grvdaimi.FocusedRowHandle;
+            if(index!=-1)
+            {
+                daimi.SeciciID = Convert.ToInt64(grvdaimi.GetRowCellValue(index, "SeciciID").ToString());
+            }
             if (grvdaimi.GetRowCellValue(index, "Soyad") != null)
             {
                 txtsoyad.Text = grvdaimi.GetRowCellValue(index, "Soyad").ToString();
