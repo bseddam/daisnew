@@ -484,6 +484,7 @@
             // 
             // btntesdiqdaimi
             // 
+            this.btntesdiqdaimi.Enabled = false;
             this.btntesdiqdaimi.Location = new System.Drawing.Point(10, 327);
             this.btntesdiqdaimi.Margin = new System.Windows.Forms.Padding(4);
             this.btntesdiqdaimi.Name = "btntesdiqdaimi";

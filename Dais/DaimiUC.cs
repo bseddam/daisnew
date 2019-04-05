@@ -19,17 +19,18 @@ namespace Dais
 
         ForComponentLoad fcl = new ForComponentLoad();
         Daimi daimi = new Daimi();
-        public int yeniduzelissil { get; set; }
 
 
         public DaimiUC()
         {
-            yeniduzelissil = 0;
+           
             InitializeComponent();
+         
         }
 
         private void DaimiUC_Load_1(object sender, EventArgs e)
         {
+     
             MenuFRM menu = this.Parent as MenuFRM;
             cmbmenteqeload(menu.daire.DaireKodu);
             cmbbinamertebeload();
@@ -40,7 +41,7 @@ namespace Dais
             cmbseriyaload();
             cmbstatuslaod();
             cmbqurumadiload();
-
+            
         }
         void cmbqurumadiload()
         {
@@ -298,15 +299,14 @@ namespace Dais
                     if (daimi.SeciciID == 0)
                     {
                         db.Daimis.Add(daimi);
-                        db.SaveChanges();
                         MessageBox.Show("Seçici əlavə olundu");
                     }
                     else
                     {
                         db.Entry(daimi).State = EntityState.Modified;
-                        db.SaveChanges();
                         MessageBox.Show("Seçici düzəliş olundu");
                     }
+                    db.SaveChanges();
                     bosalt();
                     enablefalsetrue(false);
                     grvdaimiload(daimi.MenteqeID);
@@ -360,15 +360,23 @@ namespace Dais
             rbqadin.Enabled = dey;
             rbyeni.Enabled = dey;
             rbkohne.Enabled = dey;
+            btntesdiqdaimi.Enabled = dey;
         }
         private void btnyeni_Click(object sender, EventArgs e)
         {
+            daimi.SeciciID = 0;
             bosalt();
             enablefalsetrue(true);
         }
         private void btnduzelis_Click(object sender, EventArgs e)
         {
-            yeniduzelissil = 1;
+            var index = grvdaimi.FocusedRowHandle;
+            if (index != -1)
+            {
+                daimi.SeciciID = Convert.ToInt64(grvdaimi.GetRowCellValue(index, "SeciciID").ToString());
+            }
+            
+            enablefalsetrue(true);
         }
         private void btnsil_Click(object sender, EventArgs e)
         {
@@ -379,10 +387,7 @@ namespace Dais
         {
             
             var index = grvdaimi.FocusedRowHandle;
-            if(index!=-1)
-            {
-                daimi.SeciciID = Convert.ToInt64(grvdaimi.GetRowCellValue(index, "SeciciID").ToString());
-            }
+
             if (grvdaimi.GetRowCellValue(index, "Soyad") != null)
             {
                 txtsoyad.Text = grvdaimi.GetRowCellValue(index, "Soyad").ToString();
